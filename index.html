@@ -1,0 +1,1752 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>王藍田食雞子</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&display=swap">
+<style>
+/* Layout: a lacquer-dark 3D hall fills the screen; every readable surface is a bound bamboo slip; cinnabar lacquer is kept for anger and seals, celadon glaze for calm. */
+:root{
+  color-scheme:dark;
+  --hall:#17110d;
+  --lacquer:#2b1b14;
+  --cinnabar:#b5392a;
+  --celadon:#8db3a0;
+  --slip:#d8c38c;
+  --slip-hi:#e7d6a3;
+  --slip-edge:#a88a4e;
+  --cord:#5b3d22;
+  --ink:#231811;
+  --ink-soft:#5a4532;
+  --bone:#f1e7cf;
+  --bronze:#d0a052;
+  --shade:rgba(14,9,6,.8);
+  --veil:rgba(12,8,6,.55);
+  --font-brush:"LXGW WenKai TC","DFKai-SB","BiauKai","Kaiti TC","標楷體","Noto Serif TC","Noto Serif CJK TC","Source Han Serif TC","Songti TC","PMingLiU","PingFang TC","Microsoft JhengHei","Noto Sans CJK TC",serif;
+  --font-serif:"Noto Serif TC","Noto Serif CJK TC","Source Han Serif TC","Songti TC","PMingLiU","PingFang TC","Microsoft JhengHei","Noto Sans CJK TC",serif;
+}
+[hidden]{display:none!important}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+html{overscroll-behavior:none}
+body{margin:0;overflow:hidden;background:var(--hall);color:var(--bone);font-family:var(--font-serif);font-size:15px;line-height:1.65;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  -webkit-user-select:none;user-select:none;overscroll-behavior:none}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,summary:focus-visible{outline:3px solid var(--bronze);outline-offset:3px}
+#stage3d{position:fixed;inset:0;width:100%;height:100%;display:block;touch-action:none;outline:none}
+
+/* ---------- HUD ---------- */
+.hud{position:fixed;inset:0;pointer-events:none;z-index:5}
+.topbar{position:absolute;top:0;left:0;right:0;
+  padding-top:calc(env(safe-area-inset-top,0px) + 10px);padding-bottom:24px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  display:grid;grid-template-columns:1fr 1fr auto;grid-template-areas:"stage stage mute" "anger grace grace";gap:4px 16px;align-items:center;
+  background:linear-gradient(to bottom,var(--shade),transparent)}
+.stage-label{grid-area:stage;display:flex;align-items:baseline;gap:10px;min-width:0;font-family:var(--font-brush);font-size:clamp(18px,4.8vw,24px);line-height:1.3;text-shadow:0 1px 3px #000}
+.stage-label b{font-size:.72em;letter-spacing:.16em;color:var(--bronze);font-weight:700;white-space:nowrap}
+.mute{grid-area:mute;pointer-events:auto;width:40px;height:40px;padding:0;border-radius:50%;border:1px solid rgba(241,231,207,.3);background:rgba(43,27,20,.75);display:grid;place-items:center}
+.mute svg{width:20px;height:20px;fill:none;stroke:var(--bone);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.meter{min-width:0}
+.meter-anger{grid-area:anger}
+.meter-grace{grid-area:grace}
+.meter .lbl{display:flex;justify-content:space-between;gap:8px;font-size:12px;line-height:1.4;letter-spacing:.16em}
+.meter .lbl output{font-variant-numeric:tabular-nums;letter-spacing:0;font-weight:700}
+.bar{position:relative;height:9px;margin-top:3px;border-radius:5px;background:rgba(241,231,207,.15);box-shadow:inset 0 0 0 1px rgba(241,231,207,.14)}
+.bar>i{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:5px}
+.meter-anger .bar>i{background:linear-gradient(90deg,#d6973a,var(--cinnabar) 60%,#7b2c8c)}
+.meter-grace .bar>i{width:100%;background:linear-gradient(90deg,#557f6d,var(--celadon))}
+.tick{position:absolute;top:-3px;bottom:-3px;width:2px;margin-left:-1px;background:var(--bone);opacity:.8}
+.tick span{position:absolute;top:14px;left:50%;transform:translateX(-50%);font-family:var(--font-brush);font-size:11px;font-weight:400;line-height:1;white-space:nowrap;color:var(--bone)}
+.slip-now{position:absolute;left:max(12px,env(safe-area-inset-left,0px));top:calc(env(safe-area-inset-top,0px) + 104px);max-height:calc(100% - 260px);
+  writing-mode:vertical-rl;font-family:var(--font-brush);font-size:18px;line-height:1.5;letter-spacing:.14em;padding:18px 6px;color:var(--ink);
+  background:linear-gradient(90deg,var(--slip-edge),var(--slip-hi) 22%,var(--slip) 70%,var(--slip-edge));border-radius:3px;box-shadow:0 6px 18px rgba(0,0,0,.5)}
+.slip-now::before,.slip-now::after{content:"";position:absolute;left:-3px;right:-3px;height:3px;border-radius:2px;background:var(--cord)}
+.slip-now::before{top:7px}
+.slip-now::after{bottom:7px}
+.slip-now em{font-style:normal;color:var(--cinnabar);font-weight:700}
+@media (max-height:560px){.slip-now{display:none}}
+.hint{position:absolute;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 16px);transform:translateX(-50%);width:max-content;max-width:calc(100% - 32px);
+  padding:8px 18px;border-radius:999px;background:var(--shade);border:1px solid rgba(216,195,140,.35);font-size:15px;line-height:1.5;text-align:center;text-wrap:balance}
+.vignette{position:fixed;inset:0;z-index:4;pointer-events:none;opacity:0;background:radial-gradient(ellipse at center,transparent 42%,rgba(150,30,20,.62) 100%)}
+.vignette.hot{animation:pulse 1.1s ease-in-out infinite}
+@keyframes pulse{50%{filter:brightness(1.4)}}
+.flash{position:fixed;inset:0;z-index:8;pointer-events:none;background:var(--cinnabar);opacity:0}
+.flash.go{animation:flash .55s ease-out}
+@keyframes flash{from{opacity:.55}to{opacity:0}}
+
+/* floating words */
+.pop{position:fixed;left:0;top:0;z-index:7;pointer-events:none;white-space:nowrap;font-family:var(--font-brush);font-weight:700;font-size:22px;color:var(--bone);
+  text-shadow:0 0 3px #000,0 2px 0 rgba(0,0,0,.6);animation:pop-rise 1s ease-out forwards}
+.pop.warn{color:#ffd28a}
+.pop.small{font-size:17px;color:#efe2c4}
+@keyframes pop-rise{0%{opacity:0;transform:translate(-50%,-30%) scale(.8)}15%{opacity:1;transform:translate(-50%,-50%) scale(1.06)}100%{opacity:0;transform:translate(-50%,-160%) scale(1)}}
+.danmaku{position:fixed;left:0;right:0;top:calc(env(safe-area-inset-top,0px) + 96px);height:32%;z-index:6;pointer-events:none;overflow:hidden}
+.dm{position:absolute;left:100%;white-space:nowrap;font-size:15px;color:#fff6e0;text-shadow:0 0 2px #000,0 1px 3px #000;animation:dm-fly 7s linear forwards}
+.dm.wang{color:#ffd28a}
+@keyframes dm-fly{to{transform:translateX(calc(-100vw - 100%))}}
+.big{position:fixed;left:50%;top:44%;z-index:9;pointer-events:none;white-space:nowrap;opacity:0;transform:translate(-50%,-50%);
+  font-family:var(--font-brush);font-weight:700;font-size:clamp(46px,15vw,128px);line-height:1.1;color:var(--cinnabar);
+  -webkit-text-stroke:2px #f6ead0;paint-order:stroke fill;text-shadow:0 6px 24px rgba(0,0,0,.6)}
+.big.go{animation:stamp 1.45s cubic-bezier(.2,1.4,.4,1) forwards}
+.big.stage{color:var(--bone);-webkit-text-stroke:0;font-size:clamp(30px,8.5vw,62px);letter-spacing:.12em;text-align:center}
+.big.stage small{display:block;font-size:.5em;letter-spacing:.3em;color:var(--bronze)}
+.big.soft{color:var(--bronze);-webkit-text-stroke:1px #1b120c;font-size:clamp(34px,10vw,80px)}
+@keyframes stamp{0%{opacity:0;transform:translate(-50%,-50%) scale(2.3) rotate(-7deg)}18%{opacity:1;transform:translate(-50%,-50%) scale(.95) rotate(-3deg)}26%{transform:translate(-50%,-50%) scale(1.02) rotate(-3deg)}78%{opacity:1}100%{opacity:0;transform:translate(-50%,-50%) scale(1) rotate(-3deg)}}
+
+/* gauges and controls */
+.gauge{position:fixed;left:0;top:0;z-index:6;width:30px;height:156px;pointer-events:none}
+.gauge .cap{position:absolute;top:0;left:50%;transform:translateX(-50%);font-family:var(--font-brush);font-size:14px;line-height:1;white-space:nowrap;text-shadow:0 1px 3px #000}
+.gauge .tube{position:absolute;top:20px;bottom:0;left:7px;right:7px;border-radius:8px;background:var(--shade);box-shadow:inset 0 0 0 1px rgba(241,231,207,.35);overflow:hidden}
+.gauge .zone{position:absolute;left:0;right:0;background:var(--celadon)}
+.gauge .fill{position:absolute;left:0;right:0;bottom:0;height:0;background:linear-gradient(to top,#d6973a,var(--cinnabar))}
+.gauge .needle{position:absolute;left:0;right:0;bottom:0;height:3px;margin-bottom:-1.5px;background:var(--bone);box-shadow:0 0 8px var(--bone)}
+.gauge.power{left:auto;right:calc(max(16px,env(safe-area-inset-right,0px)) + 6px);top:50%;transform:translateY(-50%);width:38px;height:230px}
+.gauge.power .tube{left:9px;right:9px}
+.bite{position:fixed;z-index:6;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom,0px) + 72px);width:min(280px,70vw);display:flex;align-items:center;gap:10px;pointer-events:none}
+.bite span{font-family:var(--font-brush);font-size:26px;font-weight:700;color:var(--bone);text-shadow:0 1px 3px #000}
+.bite .tube{flex:1;height:14px;border-radius:8px;background:var(--shade);box-shadow:inset 0 0 0 1px rgba(241,231,207,.35);overflow:hidden}
+.bite .tube i{display:block;height:100%;width:0;background:linear-gradient(90deg,#d6973a,var(--cinnabar),#7b2c8c)}
+.balance{position:fixed;left:0;top:0;z-index:6;width:64px;height:8px;margin-left:-32px;border-radius:4px;background:var(--shade);box-shadow:inset 0 0 0 1px rgba(241,231,207,.3);pointer-events:none}
+.balance i{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:4px;background:linear-gradient(90deg,var(--celadon),#e0b04a,var(--cinnabar))}
+.balance span{position:absolute;bottom:11px;left:50%;transform:translateX(-50%);font-size:11px;line-height:1;white-space:nowrap;text-shadow:0 1px 2px #000}
+.act{position:fixed;z-index:6;right:calc(max(16px,env(safe-area-inset-right,0px)) + 4px);bottom:calc(env(safe-area-inset-bottom,0px) + 72px);
+  width:88px;height:88px;padding:0;border:0;border-radius:50%;pointer-events:auto;touch-action:manipulation;
+  background:radial-gradient(circle at 35% 30%,#d4553f,var(--cinnabar) 55%,#7f2418);color:#fbeeda;font-family:var(--font-brush);font-size:40px;font-weight:700;line-height:1;
+  box-shadow:0 6px 0 #5e1a11,0 10px 22px rgba(0,0,0,.5)}
+.act small{display:block;margin-top:4px;font-family:var(--font-serif);font-size:11px;font-weight:500;letter-spacing:.2em}
+.act:active,.act.pressed{transform:translateY(4px);box-shadow:0 2px 0 #5e1a11,0 6px 14px rgba(0,0,0,.5)}
+.splat{position:fixed;inset:0;z-index:8;pointer-events:none}
+.splat.fade{transition:opacity 1.2s;opacity:0}
+.blob{position:absolute;border-radius:58% 42% 61% 39%/47% 58% 42% 53%;background:radial-gradient(circle at 40% 35%,#fffdf6,#f1ead8 60%,#ddd2b6);
+  box-shadow:inset -6px -8px 14px rgba(120,100,60,.25),0 4px 10px rgba(0,0,0,.25);animation:splat .35s cubic-bezier(.2,1.6,.4,1) both}
+.blob.yolk{background:radial-gradient(circle at 40% 35%,#ffe58a,#f0b52e 70%,#d08f14)}
+@keyframes splat{from{transform:scale(.2);opacity:0}to{transform:scale(1);opacity:1}}
+
+/* ---------- screens and bamboo-slip panels ---------- */
+.screen{position:fixed;inset:0;z-index:20;overflow-y:auto;-webkit-overflow-scrolling:touch;
+  padding-top:calc(env(safe-area-inset-top,0px) + 20px);padding-bottom:calc(env(safe-area-inset-bottom,0px) + 20px);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  display:flex;flex-direction:column;align-items:center;background:var(--veil)}
+.screen.light{background:rgba(12,8,6,.32)}
+.screen.top{z-index:22}
+.slipcard{position:relative;margin-block:auto;width:min(100%,560px);padding:26px clamp(16px,4.5vw,30px) 26px;border-radius:6px;color:var(--ink);
+  background-color:var(--slip);
+  background-image:linear-gradient(180deg,rgba(255,255,255,.12),transparent 40%),repeating-linear-gradient(90deg,rgba(255,255,255,.08) 0 2px,transparent 2px 44px,rgba(90,60,25,.2) 44px 46px);
+  box-shadow:0 18px 40px rgba(0,0,0,.55)}
+.slipcard::before,.slipcard::after{content:"";position:absolute;left:-6px;right:-6px;height:4px;border-radius:2px;background:var(--cord);box-shadow:0 1px 0 rgba(255,255,255,.2)}
+.slipcard::before{top:12px}
+.slipcard::after{bottom:12px}
+.slipcard h1,.slipcard h2,.slipcard h3{font-family:var(--font-brush);font-weight:700;text-wrap:balance;margin:0;line-height:1.2}
+.slipcard h2{font-size:clamp(24px,6.5vw,32px)}
+.slipcard h3{font-size:19px;margin-top:18px;margin-bottom:6px}
+.slipcard p{margin:0}
+.kicker{font-size:13px;letter-spacing:.3em;color:var(--ink-soft)}
+.row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:9px 22px;border:0;border-radius:999px;
+  font-family:var(--font-brush);font-size:18px;font-weight:700;letter-spacing:.08em;color:#13221b;
+  background:radial-gradient(circle at 30% 25%,#b8d5c6,var(--celadon) 60%,#6e9583);box-shadow:0 4px 0 #4f6f61,0 8px 16px rgba(0,0,0,.3)}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 #4f6f61,0 4px 10px rgba(0,0,0,.3)}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px rgba(35,24,17,.55)}
+.btn.ghost:active{transform:none;background:rgba(35,24,17,.08)}
+.btn.lacquer{background:var(--lacquer);color:var(--bone);box-shadow:0 4px 0 #120b08,0 8px 16px rgba(0,0,0,.3)}
+.btn.sm{min-height:38px;padding:6px 16px;font-size:16px}
+
+.title-card{display:grid;gap:14px;text-align:center;width:min(100%,540px)}
+.title-card h1{font-size:clamp(42px,13vw,76px);letter-spacing:.06em}
+.title-card .opening{font-family:var(--font-brush);font-size:clamp(18px,4.8vw,21px);line-height:1.6}
+.title-card .opening b{display:block;font-size:1.35em;color:var(--cinnabar)}
+.how{display:grid;gap:10px;text-align:left}
+.how ol{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.how li{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start}
+.how li>div{min-width:0}
+.how li b{font-family:var(--font-brush);font-size:17px;display:block;line-height:1.3}
+.how li span{font-size:14px;line-height:1.55;color:var(--ink-soft)}
+.seal{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:5px;background:var(--cinnabar);color:#fbeeda;font-family:var(--font-brush);font-size:22px;font-weight:700;box-shadow:inset 0 0 0 2px rgba(251,238,218,.35)}
+.how .note{font-size:13.5px;color:var(--ink-soft);border-top:1px dashed rgba(60,40,20,.35);padding-top:8px}
+details.teacher{font-size:14px;color:var(--ink-soft)}
+details.teacher summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:6px;padding:4px 8px;border-radius:6px}
+details.teacher summary::-webkit-details-marker{display:none}
+details.teacher summary::before{content:"▸";font-size:12px}
+details.teacher[open] summary::before{content:"▾"}
+details.teacher .row{margin-top:8px}
+.best{font-size:13.5px;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+
+.card-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.card-head .seal{flex:0 0 auto}
+.slips{display:flex;flex-direction:row-reverse;flex-wrap:wrap;justify-content:center;gap:6px;margin:4px 0 14px}
+.slip{writing-mode:vertical-rl;font-family:var(--font-brush);font-size:clamp(22px,6vw,28px);line-height:1.1;letter-spacing:.1em;min-height:7.4em;padding:12px 7px;
+  color:var(--ink);background:linear-gradient(90deg,#c6aa68,#e8d49e 30%,#e4cf96 70%,#c0a25d);border-radius:3px;box-shadow:inset 0 0 0 1px rgba(90,60,25,.25),0 2px 4px rgba(60,40,15,.25)}
+.slip em{font-style:normal;color:var(--cinnabar);-webkit-text-emphasis:dot var(--cinnabar);text-emphasis:dot var(--cinnabar)}
+.gloss{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:0;padding-top:12px;border-top:1px dashed rgba(60,40,20,.35);font-size:15px;line-height:1.55}
+.gloss dt{font-family:var(--font-brush);font-weight:700;font-size:17px;color:var(--cinnabar);white-space:nowrap}
+.gloss dd{margin:0;min-width:0}
+.gloss dd small{margin-left:6px;font-size:12.5px;color:var(--ink-soft);white-space:nowrap}
+.card .row{margin-top:16px}
+
+.end-card{display:grid;gap:14px;width:min(100%,600px)}
+.end-body{display:grid;gap:14px;min-width:0}
+.end-top{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center}
+.end-top>div{min-width:0}
+.quote blockquote{margin:6px 0 4px;font-family:var(--font-brush);font-size:clamp(21px,5.6vw,27px);line-height:1.45;color:var(--ink)}
+.quote .plain{font-size:14.5px;color:var(--ink-soft)}
+.grade{display:grid;justify-items:center;gap:4px;font-size:12px;letter-spacing:.2em;color:var(--ink-soft)}
+.grade-seal{width:86px;height:86px;display:grid;place-items:center;border:4px solid var(--cinnabar);border-radius:10px;color:var(--cinnabar);
+  font-family:var(--font-brush);font-size:56px;font-weight:700;line-height:1;transform:rotate(-8deg);animation:seal-in .5s cubic-bezier(.2,1.6,.4,1) .35s both}
+@keyframes seal-in{from{opacity:0;transform:rotate(-8deg) scale(2.2)}to{opacity:1;transform:rotate(-8deg) scale(1)}}
+.haste{display:grid;gap:2px;padding:10px 14px;border-radius:6px;background:rgba(43,27,20,.1);box-shadow:inset 0 0 0 1px rgba(43,27,20,.18)}
+.haste b{font-family:var(--font-brush);font-size:20px}
+.haste span{font-size:14px;color:var(--ink-soft)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(86px,1fr));gap:8px}
+.stat{display:grid;justify-items:center;gap:0;padding:8px 4px;border-radius:6px;background:rgba(255,255,255,.2)}
+.stat b{font-size:20px;line-height:1.3;font-variant-numeric:tabular-nums}
+.stat span{font-size:12px;letter-spacing:.06em;color:var(--ink-soft);text-align:center}
+.badges{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.badge{display:inline-flex;align-items:center;gap:7px;padding:5px 12px 5px 6px;border-radius:999px;background:var(--lacquer);color:var(--bone);font-size:13.5px;line-height:1.3}
+.badge i{display:grid;place-items:center;width:20px;height:20px;border-radius:4px;background:var(--cinnabar);color:#fbeeda;font-style:normal;font-family:var(--font-brush);font-size:12px}
+.end-card details{font-size:14.5px}
+.end-card details summary{cursor:pointer;font-family:var(--font-brush);font-size:17px;padding:2px 0}
+.end-card details .gloss{margin-top:8px}
+.lead{font-family:var(--font-brush);font-size:clamp(19px,5vw,22px);line-height:1.6}
+.rect-seal{justify-self:center;display:inline-block;padding:6px 16px;border:3px solid var(--cinnabar);border-radius:6px;color:var(--cinnabar);font-family:var(--font-brush);font-size:22px;font-weight:700;transform:rotate(-4deg);animation:seal-in .5s cubic-bezier(.2,1.6,.4,1) .35s both}
+.aside{padding:12px 14px;border-radius:6px;background:rgba(43,27,20,.1);box-shadow:inset 0 0 0 1px rgba(43,27,20,.18);font-size:14.5px;line-height:1.65}
+.aside b{display:block;font-family:var(--font-brush);font-size:17px;margin-bottom:2px}
+
+.text-card{width:min(100%,680px)}
+.fulltext{display:flex;gap:6px;overflow-x:auto;direction:rtl;padding:4px 2px 12px;scrollbar-width:thin}
+.fulltext .slip{direction:ltr;flex:0 0 auto;font-size:22px;min-height:9.4em}
+.text-card p{font-size:15.5px;line-height:1.8}
+.tbl-wrap{overflow-x:auto}
+.tbl{border-collapse:collapse;width:100%;min-width:380px;font-size:14.5px}
+.tbl th,.tbl td{padding:6px 8px;border-bottom:1px dashed rgba(60,40,20,.35);text-align:left;vertical-align:top}
+.tbl th{font-family:var(--font-brush);font-size:16px;color:var(--cinnabar);white-space:nowrap}
+.yuanwen{font-family:var(--font-brush);font-size:19px;line-height:1.8}
+
+.order-card{display:grid;gap:14px;text-align:center;width:min(100%,520px)}
+.order-slots{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
+.order-slot{width:58px;display:grid;justify-items:center;gap:4px}
+.order-slot b{width:54px;height:58px;display:grid;place-items:center;border-radius:6px;border:2px dashed rgba(35,24,17,.4);font-family:var(--font-brush);font-size:30px}
+.order-slot span{font-size:11.5px;line-height:1.3;color:var(--ink-soft);min-height:2.6em}
+.order-slot.on b{border-style:solid;border-color:var(--cinnabar);color:var(--cinnabar);background:rgba(255,255,255,.25)}
+.order-pool{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
+.chip{width:56px;height:56px;padding:0;border:0;border-radius:8px;background:var(--lacquer);color:var(--bone);font-family:var(--font-brush);font-size:28px;box-shadow:0 3px 0 #120b08}
+.chip:disabled{opacity:.22;cursor:default}
+.chip.wrong{animation:shake .4s}
+@keyframes shake{20%,60%{transform:translateX(-5px)}40%,80%{transform:translateX(5px)}}
+.order-msg{min-height:1.6em;font-family:var(--font-brush);font-size:17px}
+
+.fatal{position:fixed;inset:0;z-index:60;display:grid;place-items:center;padding:24px;text-align:center;background:var(--hall);color:var(--bone);font-size:17px;line-height:1.7}
+@media (prefers-reduced-motion:reduce){
+  .big.go{animation-duration:1.1s}
+  .dm{animation-duration:9s}
+  .flash.go,.vignette.hot{animation:none}
+}
+</style>
+
+<canvas id="stage3d" aria-label="王藍田食雞子的 3D 遊戲畫面"></canvas>
+<div class="vignette" id="vignette"></div>
+<div class="flash" id="flash"></div>
+
+<div class="hud" id="hud" hidden>
+  <div class="topbar">
+    <div class="stage-label"><b id="stageNo">第一關</b><span id="stageName">以箸刺之</span></div>
+    <button class="mute" id="muteBtn" type="button" aria-label="關閉音效">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5v5h3.5L12 18V6L7.5 9.5H4z"></path><path id="muteWaves" d="M15.5 9.5a3.5 3.5 0 0 1 0 5M18 7a7 7 0 0 1 0 10"></path></svg>
+    </button>
+    <div class="meter meter-anger">
+      <div class="lbl"><span>忿狷值</span><output id="angerNum">0</output></div>
+      <div class="bar"><i id="angerFill"></i><b class="tick" style="left:40%"><span>大怒</span></b><b class="tick" style="left:80%"><span>瞋甚</span></b></div>
+    </div>
+    <div class="meter meter-grace">
+      <div class="lbl"><span>風度值</span><output id="graceNum">100</output></div>
+      <div class="bar"><i id="graceFill"></i></div>
+    </div>
+  </div>
+  <div class="slip-now" id="slipNow" hidden></div>
+  <div class="hint" id="hint" hidden></div>
+</div>
+
+<div class="danmaku" id="danmaku" aria-hidden="true"></div>
+<div id="pops" aria-hidden="true"></div>
+<div class="big" id="big" aria-live="polite"></div>
+
+<div class="gauge" id="grip" hidden><span class="cap">力道</span><div class="tube"><div class="zone" id="gripZone"></div><div class="needle" id="gripNeedle"></div></div></div>
+<div class="gauge power" id="power" hidden><span class="cap">擲力</span><div class="tube"><div class="fill" id="powerFill"></div><div class="needle" id="powerNeedle"></div></div></div>
+<div class="bite" id="bite" hidden><span>齧</span><div class="tube"><i id="biteFill"></i></div></div>
+<div class="balance" id="balance" hidden><span>重心</span><i id="balanceFill"></i></div>
+<button class="act" id="actBtn" type="button" hidden>蹍<small>踩下去</small></button>
+<div class="splat" id="splat"></div>
+
+<section class="screen light" id="titleScreen">
+  <div class="slipcard title-card">
+    <p class="kicker">世說新語・忿狷</p>
+    <h1>王藍田食雞子</h1>
+    <p class="opening"><b>王藍田性急。</b>今天，他只想好好吃一顆雞蛋。</p>
+    <div class="row">
+      <button class="btn" id="startBtn" type="button">開始</button>
+      <button class="btn ghost" id="howBtn" type="button" aria-expanded="false" aria-controls="howBox">怎麼玩</button>
+      <button class="btn ghost" id="readBtn" type="button">讀課文</button>
+    </div>
+    <div class="how" id="howBox" hidden>
+      <ol>
+        <li><span class="seal">刺</span><div><b>第一關　以箸刺之</b><span>點一下用筷子刺蛋。長按在蛋上可以改用「夾」的，看準綠色區放開。</span></div></li>
+        <li><span class="seal">擲</span><div><b>第二關　舉以擲地</b><span>按住蓄力，放開就把蛋摔到地上。</span></div></li>
+        <li><span class="seal">蹍</span><div><b>第三關　以屐齒蹍之</b><span>點地板走過去，按「蹍」踩蛋。穿高齒木屐亂衝亂轉，會拐到腳。</span></div></li>
+        <li><span class="seal">齧</span><div><b>第四關　齧破即吐之</b><span>撲上去抓蛋，狂點把蛋咬破，最後按「吐」。</span></div></li>
+      </ol>
+      <p class="note">忿狷值累積到「大怒」「瞋甚」，劇情就往下走。動作越粗魯，風度值掉得越多。電腦可用空白鍵代替點擊，第三關也能用方向鍵走路。</p>
+    </div>
+    <details class="teacher">
+      <summary>教師示範：直接選關</summary>
+      <div class="row">
+        <button class="btn sm lacquer" type="button" data-stage="1">一　刺</button>
+        <button class="btn sm lacquer" type="button" data-stage="2">二　擲</button>
+        <button class="btn sm lacquer" type="button" data-stage="3">三　蹍</button>
+        <button class="btn sm lacquer" type="button" data-stage="4">四　齧</button>
+      </div>
+    </details>
+    <p class="best" id="bestLine" hidden></p>
+  </div>
+</section>
+
+<section class="screen" id="cardScreen" hidden>
+  <div class="slipcard card" role="dialog" aria-modal="true" aria-labelledby="cardTitle">
+    <div class="card-head"><h2 id="cardTitle"></h2><span class="seal" id="cardSeal"></span></div>
+    <div class="slips" id="cardSlips"></div>
+    <dl class="gloss" id="cardGloss"></dl>
+    <div class="row"><button class="btn" id="cardNext" type="button">繼續</button></div>
+  </div>
+</section>
+
+<section class="screen" id="endScreen" hidden>
+  <div class="slipcard end-card" role="dialog" aria-modal="true" aria-labelledby="endTitle">
+    <div><p class="kicker" id="endKicker">史實結局</p><h2 id="endTitle">千古笑柄</h2></div>
+    <div id="endBody" class="end-body"></div>
+    <div class="row" id="endActions"></div>
+  </div>
+</section>
+
+<section class="screen top" id="textScreen" hidden>
+  <div class="slipcard text-card" role="dialog" aria-modal="true" aria-labelledby="textTitle">
+    <div class="card-head"><h2 id="textTitle">〈王藍田食雞子〉</h2><button class="btn ghost sm" id="textClose" type="button">關閉</button></div>
+    <p class="kicker">《世說新語・忿狷》　忿狷：狷，ㄐㄩㄢˋ，急躁</p>
+    <div class="fulltext" id="fullSlips"></div>
+    <h3>白話翻譯</h3>
+    <p>王藍田的性子很急。有一次吃雞蛋，他用筷子去戳，戳不到，就大發脾氣，把雞蛋拿起來往地上丟。雞蛋在地上轉個不停，他就從坐榻下來，用木屐的齒去踩，又踩不到。他氣極了，又從地上把蛋撿起來放進嘴裡，咬破後立刻吐掉。王羲之聽說這件事，大笑說：「就算是他父親王安期有這種脾氣，也沒有一點值得稱道的地方，更何況是王藍田呢？」</p>
+    <h3>字詞注釋</h3>
+    <dl class="gloss" id="fullGloss"></dl>
+    <h3>一字多義</h3>
+    <div class="tbl-wrap"><table class="tbl">
+      <thead><tr><th>字</th><th>意思</th><th>課文例句</th></tr></thead>
+      <tbody>
+        <tr><td>以</td><td>用</td><td>以箸刺之、以屐齒蹍之</td></tr>
+        <tr><td>以</td><td>而（連接前後動作）</td><td>舉以擲地</td></tr>
+        <tr><td>於</td><td>在</td><td>雞子於地圓轉未止</td></tr>
+        <tr><td>於</td><td>從</td><td>復於地取內口中</td></tr>
+        <tr><td>之</td><td>代名詞，指雞子</td><td>刺之、蹍之、吐之</td></tr>
+      </tbody>
+    </table></div>
+    <h3>延伸閱讀：〈王思性急〉（《魏略》）</h3>
+    <p class="yuanwen">王思性急。執筆作書，蠅集筆端，驅去復來。思恚怒，自起逐之，不能得。還取筆擲地，蹋壞之。</p>
+    <p>白話：王思的性子很急。有一次拿筆寫字，蒼蠅停在筆尖上，趕走了又飛回來。王思氣得站起來追蒼蠅，卻抓不到，回座就把筆摔到地上，踩壞了。</p>
+    <p>想一想：王藍田和王思誰比較急？兩段文字各用了哪些動作，讓人一讀就知道主角的脾氣？</p>
+  </div>
+</section>
+
+<section class="screen top" id="orderScreen" hidden>
+  <div class="slipcard order-card" role="dialog" aria-modal="true" aria-labelledby="orderTitle">
+    <h2 id="orderTitle">動作排序挑戰</h2>
+    <p>王藍田對那顆蛋，依序做了哪五個動作？照順序點選。</p>
+    <div class="order-slots" id="orderSlots"></div>
+    <div class="order-pool" id="orderPool"></div>
+    <p class="order-msg" id="orderMsg" aria-live="polite"></p>
+    <div class="row"><button class="btn ghost" id="orderReset" type="button">重來</button><button class="btn" id="orderClose" type="button">回結局</button></div>
+  </div>
+</section>
+
+<div class="fatal" id="fatal" hidden><p id="fatalMsg"></p></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+'use strict';
+const $=id=>document.getElementById(id);
+function fatal(msg){ $('fatalMsg').textContent=msg; $('fatal').hidden=false; }
+if(!window.THREE){ fatal('3D 引擎沒有載入成功。請確認網路連線後，重新整理這一頁。'); return; }
+const T=window.THREE;
+
+/* ---------- small helpers ---------- */
+const mq=q=>!!(window.matchMedia&&window.matchMedia(q).matches);
+const REDUCED=mq('(prefers-reduced-motion: reduce)');
+const COARSE=mq('(pointer: coarse)');
+const BRUSH='"LXGW WenKai TC","DFKai-SB","BiauKai","Kaiti TC","Noto Serif TC","Noto Serif CJK TC","Songti TC","PingFang TC","Microsoft JhengHei",serif';
+const TAU=Math.PI*2;
+const clamp=(v,a,b)=>v<a?a:v>b?b:v;
+const lerp=(a,b,t)=>a+(b-a)*t;
+const rand=(a,b)=>a+Math.random()*(b-a);
+const pick=a=>a[(Math.random()*a.length)|0];
+const damp=(a,b,r,dt)=>a+(b-a)*(1-Math.exp(-r*dt));
+const easeOut=t=>1-Math.pow(1-t,3);
+const easeInOut=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+function angDiff(a,b){ let d=(b-a)%TAU; if(d>Math.PI) d-=TAU; else if(d<-Math.PI) d+=TAU; return d; }
+function angDamp(a,b,r,dt){ return a+angDiff(a,b)*(1-Math.exp(-r*dt)); }
+const store={
+  get(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } },
+  set(k,v){ try{ localStorage.setItem(k,String(v)); }catch(e){} }
+};
+
+/* ---------- tuning ---------- */
+const CFG={
+  eggR:0.062, eggL:0.17,
+  s1:{threshold:40,timeAnger:0.5,hit:8,miss:3.5,light:5,hard:7,swayBase:0.008,swayAnger:0.042,
+      hitR:0.072,pinchR:0.078,hold:0.26,pinchMaxSpeed:0.5,zoneW:0.062,grip:0.85,tremor0:0.55,tremorA:0.9,hop:0.38},
+  s2:{start:40,end:55},
+  s3:{threshold:80,timeAnger:0.35,caught:7,tooth:6,near:3.5,miss:1.5,trip:3.5,kick:1.5,
+      walk:1.25,run:1.75,reach:0.62,windup:0.2,evade:1.8},
+  s4:{perBite:0.075,decay:0.12}
+};
+const ROOM={minX:-3.6,maxX:3.6,minZ:-4.2,maxZ:4.0,H:3.2};
+const FLOOR={minX:-3.3,maxX:3.3,minZ:-1.92,maxZ:3.72};
+const TA_H=0.38;
+const TABLE={x:0,z:-2.72,y:0.68,w:1.1,d:0.62};
+const BOWL={x:0,z:-2.72,y:0.68,rIn:0.15,rMax:0.085};
+const EGG_CY=BOWL.y+0.02+CFG.eggL/2;
+const SEAT={x:0,z:-3.32};
+
+/* ---------- words ---------- */
+const TXT={
+  slip:['滑走了！','刺不到！','咻——','又滑掉了！','蛋：嘿嘿'],
+  miss:['刺空！','叩！','戳到碗了'],
+  hop:['蛋跳出碗外了！'],
+  light:['太輕了，蛋溜走了'],
+  hard:['太用力，蛋彈飛了！'],
+  land:['蛋……沒破？！'],
+  caught:['卡在屐齒中間！','剛好卡進齒縫！'],
+  tooth:['被屐齒彈飛！','踩歪了！'],
+  near:['差一點！','擦過去了！'],
+  smiss:['踩空！'],
+  trip:['木屐不穩，拐到腳了！'],
+  kick:['踢到蛋了！'],
+  dmiss:['撲空！'],
+  bite:['喀！','喀滋！','咬！','嘎！']
+};
+const DM={
+  start:['書童：大人請用早膳','路人：一顆蛋而已，能出什麼事'],
+  slip:['蛋：刺不到～刺不到～','書童：大人，蛋是圓的','王右軍：噗','路人：這顆蛋有練過','路人：筷子不是這樣用的'],
+  miss:['路人：瞄準一點啊','書童：大人，蛋在那邊'],
+  hop:['蛋：出來透透氣','路人：蛋越獄了'],
+  pinch:['路人：咦？他要用夾的？','書童：大人今天好斯文'],
+  rage:['書童：大人臉都紅了……','路人：要爆了要爆了','王右軍：有好戲看了'],
+  held:['蛋：等等，有話好說','書童：大人三思啊'],
+  land:['蛋：沒破喔～','王右軍：哈哈哈哈','路人：這顆蛋是鐵做的吧'],
+  down:['路人：他下來了！','書童：大人小心木屐'],
+  caught:['蛋：剛好卡在齒縫，謝謝','路人：屐齒間距完美','王右軍：笑死'],
+  tooth:['路人：被彈飛了','蛋：咻～'],
+  smiss:['路人：踩空','書童：大人別踩到自己'],
+  trip:['書童：大人！！','路人：木屐真的很難穿','王右軍：哈哈哈哈哈'],
+  shen:['路人：他眼睛都紅了','書童：快去請大夫'],
+  bite:['路人：他真的咬了','書童：大人，那是地上撿的！','路人：地上有灰塵欸'],
+  spit:['王右軍：哈哈哈哈哈哈哈','路人：（擦螢幕）','書童：……我去拿抹布'],
+  yaliang:['王右軍：？？？','路人：這是王藍田？','書童：大人今天好溫柔']
+};
+const CARDS={
+  1:{title:'以箸刺之',seal:'一',slips:['[王藍田][性急]。','[嘗]食[雞子]，','以[箸][刺]之，','[不得]，','[便]大怒，'],
+     gloss:[['王藍田','王述，封藍田侯，所以人稱王藍田'],['性急','性情急躁'],['嘗','曾經'],['雞子','雞蛋','子：ㄗˇ'],['箸','筷子','ㄓㄨˋ'],['刺','戳'],['不得','沒有成功（刺不到）'],['便','就']]},
+  2:{title:'舉以擲地',seal:'二',slips:['[舉以擲地]。','雞子[於]地','[圓轉未止]，'],
+     gloss:[['舉以擲地','拿起來丟到地上（以：而）'],['擲','丟、扔','ㄓˊ'],['於','在'],['圓轉未止','旋轉個不停']]},
+  3:{title:'以屐齒蹍之',seal:'三',slips:['[仍][下地]','以[屐齒][蹍]之，','[又不得]。'],
+     gloss:[['仍','於是、就'],['下地','從坐榻下到地面'],['屐齒','木屐底部的齒','屐：ㄐㄧ'],['蹍','踩、踏','ㄓㄢˇ'],['又不得','又沒有成功（踩不到）']]},
+  4:{title:'齧破即吐之',seal:'四',slips:['[瞋甚]，','[復][於]地取','[內]口中，','[齧]破[即]吐之。'],
+     gloss:[['瞋甚','非常生氣（瞋：發怒）','瞋：ㄔㄣ'],['復','又、再'],['於','從'],['內','同「納」，放進','ㄋㄚˋ'],['齧','咬','ㄋㄧㄝˋ'],['即','立刻']]},
+  5:{title:'王右軍的評語',seal:'評',slips:['[王右軍]聞而大笑曰：','「[使][安期]有此性，','[猶當][無一豪可論]，','[況]藍田[邪]？」'],
+     gloss:[['王右軍','王羲之，曾任右軍將軍'],['使','假使'],['安期','王承，字安期，王藍田的父親'],['猶當','尚且'],['無一豪可論','沒有一點值得稱道的地方（豪：同「毫」）'],['況','何況'],['邪','同「耶」，表示反問的語氣','ㄧㄝˊ']]}
+};
+const FULL=['王藍田性急。','嘗食雞子，','以箸[刺]之，','不得，','便大怒，','舉以[擲]地。','雞子於地','圓轉未止，','仍下地','以屐齒[蹍]之，','又不得。','瞋甚，','復於地取','內口中，','[齧]破即[吐]之。','王右軍聞而大笑曰：','「使安期有此性，','猶當無一豪可論，','況藍田邪？」'];
+const STRIP={1:'嘗食雞子，以箸<em>刺</em>之，不得，便大怒',2:'舉以<em>擲</em>地。雞子於地圓轉未止',3:'仍下地以屐齒<em>蹍</em>之，又不得',4:'瞋甚，復於地取內口中，<em>齧</em>破即<em>吐</em>之'};
+const mark=s=>s.replace(/\[(.+?)\]/g,'<em>$1</em>');
+const glossHTML=list=>list.map(([k,v,z])=>`<dt>${k}</dt><dd>${v}${z?`<small>${z}</small>`:''}</dd>`).join('');
+
+/* ---------- renderer, scene, lights ---------- */
+const canvas=$('stage3d');
+let renderer;
+try{ renderer=new T.WebGLRenderer({canvas,antialias:true,powerPreference:'high-performance'}); }
+catch(e){ fatal('這個瀏覽器無法顯示 3D 畫面（不支援 WebGL）。請改用新版的 Chrome、Edge 或 Safari 開啟。'); return; }
+renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
+renderer.setClearColor(0x17110d,1);
+const scene=new T.Scene();
+scene.fog=new T.Fog(0x17110d,8,19);
+const camera=new T.PerspectiveCamera(50,1,0.02,60);
+scene.add(new T.HemisphereLight(0xffeccc,0x3d2a1f,0.8));
+const sun=new T.DirectionalLight(0xffdcae,0.7); sun.position.set(2.5,6,4.5); scene.add(sun);
+const fillLight=new T.DirectionalLight(0xffe9c9,0.34); fillLight.position.set(-1,2.5,-6); scene.add(fillLight);
+const lampLight=new T.PointLight(0xffa850,1.0,3.4,2); lampLight.position.set(-0.45,0.92,-2.55); scene.add(lampLight);
+
+/* ---------- canvas textures ---------- */
+function cvs(w,h){ const c=document.createElement('canvas'); c.width=w; c.height=h; return c; }
+const MAXANI=Math.min(8,renderer.capabilities.getMaxAnisotropy?renderer.capabilities.getMaxAnisotropy():1);
+function texWood(){
+  const c=cvs(512,512), g=c.getContext('2d'), N=8, pw=512/N;
+  for(let i=0;i<N;i++){
+    const v=(Math.random()*26-13)|0;
+    g.fillStyle=`rgb(${120+v},${(80+v*0.7)|0},${(48+v*0.5)|0})`; g.fillRect(i*pw,0,pw,512);
+    for(let k=0;k<22;k++){
+      g.strokeStyle=`rgba(50,28,14,${0.05+Math.random()*0.09})`; g.lineWidth=0.8+Math.random()*1.6;
+      const x0=i*pw+Math.random()*pw; g.beginPath(); g.moveTo(x0,0);
+      for(let y=0;y<=512;y+=32) g.lineTo(x0+Math.sin(y*0.021+k*1.7)*2.6,y);
+      g.stroke();
+    }
+    g.fillStyle='rgba(28,15,8,0.6)'; g.fillRect(i*pw,0,2,512);
+    g.fillRect(i*pw,(Math.random()*512)|0,pw,2);
+  }
+  const t=new T.CanvasTexture(c); t.wrapS=t.wrapT=T.RepeatWrapping; t.anisotropy=MAXANI; return t;
+}
+function texWall(windows){
+  const W=1024,H=456, c=cvs(W,H), g=c.getContext('2d');
+  g.fillStyle='#b9a27c'; g.fillRect(0,0,W,H);
+  for(let i=0;i<5000;i++){ g.fillStyle=`rgba(80,60,35,${Math.random()*0.06})`; g.fillRect(Math.random()*W,Math.random()*H,2,2); }
+  g.fillStyle='#4a2e1b'; g.fillRect(0,H-34,W,34); g.fillRect(0,0,W,22);
+  g.fillStyle='#5a3820'; g.fillRect(0,0,30,H); g.fillRect(W-30,0,30,H);
+  if(windows){
+    for(const x of [150,620]){
+      const y=110,w=254,h=210, gr=g.createLinearGradient(0,y,0,y+h);
+      gr.addColorStop(0,'#f6e3b3'); gr.addColorStop(1,'#e9c98a'); g.fillStyle=gr; g.fillRect(x,y,w,h);
+      g.strokeStyle='#3b2414'; g.lineWidth=5;
+      for(let i=1;i<6;i++){ g.beginPath(); g.moveTo(x+i*w/6,y); g.lineTo(x+i*w/6,y+h); g.stroke(); }
+      for(let i=1;i<5;i++){ g.beginPath(); g.moveTo(x,y+i*h/5); g.lineTo(x+w,y+i*h/5); g.stroke(); }
+      g.lineWidth=14; g.strokeRect(x,y,w,h);
+    }
+  } else { g.fillStyle='#5a3820'; g.fillRect(W/2-15,0,30,H); }
+  return new T.CanvasTexture(c);
+}
+function texMat(){
+  const c=cvs(256,256), g=c.getContext('2d'); g.fillStyle='#7d6338'; g.fillRect(0,0,256,256);
+  for(let y=0;y<256;y+=4) for(let x=0;x<256;x+=8){ const off=(y/4)%2?4:0; g.fillStyle=`rgba(40,26,12,${0.12+Math.random()*0.1})`; g.fillRect(x+off,y,4,3); }
+  const t=new T.CanvasTexture(c); t.wrapS=t.wrapT=T.RepeatWrapping; return t;
+}
+function texInkScreen(){
+  const c=cvs(256,384), g=c.getContext('2d'); g.fillStyle='#e8dcc0'; g.fillRect(0,0,256,384);
+  for(let L=0;L<3;L++){
+    g.fillStyle=`rgba(40,35,30,${0.16+L*0.15})`; g.beginPath(); g.moveTo(0,384);
+    const y0=150+L*62;
+    for(let x=0;x<=256;x+=8) g.lineTo(x,y0-Math.abs(Math.sin(x*0.02+L*2.1))*60*(1-L*0.2)-Math.sin(x*0.07+L)*10);
+    g.lineTo(256,384); g.fill();
+  }
+  const gr=g.createLinearGradient(0,220,0,300); gr.addColorStop(0,'rgba(232,220,192,0)'); gr.addColorStop(.5,'rgba(232,220,192,.85)'); gr.addColorStop(1,'rgba(232,220,192,0)');
+  g.fillStyle=gr; g.fillRect(0,220,256,80);
+  return new T.CanvasTexture(c);
+}
+const scrollCv=cvs(256,600), scrollTex=new T.CanvasTexture(scrollCv);
+function drawScroll(){
+  const g=scrollCv.getContext('2d');
+  g.fillStyle='#5f4434'; g.fillRect(0,0,256,600);
+  g.fillStyle='#efe4c8'; g.fillRect(26,40,204,520);
+  g.fillStyle='#2a1d14'; g.font=`700 118px ${BRUSH}`; g.textAlign='center'; g.textBaseline='middle';
+  g.fillText('雅',128,200); g.fillText('量',128,350);
+  g.fillStyle='#b5392a'; g.fillRect(156,452,46,46);
+  g.fillStyle='#efe4c8'; g.font=`700 19px ${BRUSH}`; g.fillText('藍',179,466); g.fillText('田',179,486);
+  g.fillStyle='#3a271c'; g.fillRect(0,0,256,30); g.fillRect(0,570,256,30);
+  scrollTex.needsUpdate=true;
+}
+function texSoft(){
+  const c=cvs(64,64), g=c.getContext('2d'), gr=g.createRadialGradient(32,32,0,32,32,32);
+  gr.addColorStop(0,'rgba(255,255,255,1)'); gr.addColorStop(1,'rgba(255,255,255,0)'); g.fillStyle=gr; g.fillRect(0,0,64,64);
+  return new T.CanvasTexture(c);
+}
+const softTex=texSoft();
+const M=o=>new T.MeshStandardMaterial(o);
+function mesh(geo,mat,x,y,z){ const m=new T.Mesh(geo,mat); m.position.set(x||0,y||0,z||0); return m; }
+
+/* ---------- the hall ---------- */
+const woodTex=texWood(); woodTex.repeat.set(3,3.4);
+const floor=mesh(new T.PlaneGeometry(ROOM.maxX-ROOM.minX,ROOM.maxZ-ROOM.minZ),M({map:woodTex,roughness:.82}),0,0,(ROOM.minZ+ROOM.maxZ)/2);
+floor.rotation.x=-Math.PI/2; scene.add(floor);
+const wallWin=texWall(true), wallPlain=texWall(false);
+const front=mesh(new T.PlaneGeometry(7.2,3.2),M({map:wallWin,roughness:.95,emissive:0xffe2b0,emissiveMap:wallWin,emissiveIntensity:.14}),0,1.6,ROOM.maxZ);
+front.rotation.y=Math.PI; scene.add(front);
+scene.add(mesh(new T.PlaneGeometry(7.2,3.2),M({map:wallPlain,roughness:.95}),0,1.6,ROOM.minZ));
+const sideGeo=new T.PlaneGeometry(ROOM.maxZ-ROOM.minZ,3.2);
+const wl=mesh(sideGeo,M({map:wallPlain,roughness:.95}),ROOM.minX,1.6,(ROOM.minZ+ROOM.maxZ)/2); wl.rotation.y=Math.PI/2; scene.add(wl);
+const wr=mesh(sideGeo,M({map:wallPlain,roughness:.95}),ROOM.maxX,1.6,(ROOM.minZ+ROOM.maxZ)/2); wr.rotation.y=-Math.PI/2; scene.add(wr);
+const beamMat=M({color:0x3a2416,roughness:.8});
+for(let i=0;i<5;i++) scene.add(mesh(new T.BoxGeometry(7.2,0.14,0.18),beamMat,0,3.16,-3.4+i*1.8));
+const scroll=mesh(new T.PlaneGeometry(0.55,1.29),new T.MeshStandardMaterial({map:scrollTex,roughness:.9}),0,1.72,ROOM.maxZ-0.02);
+scroll.rotation.y=Math.PI; scene.add(scroll);
+drawScroll();
+if(document.fonts&&document.fonts.load){ document.fonts.load(`700 118px "LXGW WenKai TC"`,'雅量藍田').then(drawScroll).catch(()=>{}); }
+// raised couch (榻), mat, folding screen
+const lacq=M({color:0x3a2015,roughness:.55,metalness:.05});
+scene.add(mesh(new T.BoxGeometry(3.2,TA_H,1.9),lacq,0,TA_H/2,-3.05));
+scene.add(mesh(new T.BoxGeometry(3.24,0.05,1.94),M({color:0x7a2a1c,roughness:.5}),0,TA_H-0.015,-3.05));
+const matTex=texMat(); matTex.repeat.set(6,3.4);
+scene.add(mesh(new T.BoxGeometry(2.9,0.012,1.6),M({map:matTex,roughness:.95}),0,TA_H+0.012,-3.1));
+const inkTex=texInkScreen(), frameMat=M({color:0x2c1a12,roughness:.7}), paperMat=M({map:inkTex,roughness:.95});
+[-1,0,1].forEach(i=>{
+  const p=new T.Group();
+  p.add(mesh(new T.BoxGeometry(0.92,1.42,0.05),frameMat));
+  const face=mesh(new T.PlaneGeometry(0.8,1.28),paperMat,0,0,0.027); p.add(face);
+  p.position.set(i*0.93,TA_H+0.74,-3.9+Math.abs(i)*0.12); p.rotation.y=-i*0.28; scene.add(p);
+});
+// low table with red lacquer inlay
+const tableG=new T.Group(), tableMat=M({color:0x24130d,roughness:.45});
+tableG.add(mesh(new T.BoxGeometry(TABLE.w,0.04,TABLE.d),tableMat,0,TABLE.y-0.02,0));
+const inlay=mesh(new T.PlaneGeometry(TABLE.w-0.12,TABLE.d-0.12),M({color:0x8a2a1b,roughness:.5}),0,TABLE.y+0.001,0); inlay.rotation.x=-Math.PI/2; tableG.add(inlay);
+for(const sx of [-1,1]) for(const sz of [-1,1]) tableG.add(mesh(new T.BoxGeometry(0.05,TABLE.y-0.04-TA_H,0.05),tableMat,sx*(TABLE.w/2-0.06),(TABLE.y-0.04+TA_H)/2,sz*(TABLE.d/2-0.06)));
+tableG.position.set(TABLE.x,0,TABLE.z); scene.add(tableG);
+// celadon bowl
+const bowlPts=[[0,0],[0.06,0],[0.066,0.012],[0.072,0.014],[0.12,0.04],[0.155,0.07],[0.172,0.086],[0.166,0.09],[0.15,0.076],[0.11,0.046],[0.06,0.024],[0,0.02]].map(p=>new T.Vector2(p[0],p[1]));
+scene.add(mesh(new T.LatheGeometry(bowlPts,40),M({color:0x93b7a4,roughness:.28,metalness:.05,side:T.DoubleSide}),BOWL.x,BOWL.y,BOWL.z));
+// bronze oil lamp
+const bronze=M({color:0x8a6a32,roughness:.4,metalness:.6});
+const lampG=new T.Group();
+lampG.add(mesh(new T.CylinderGeometry(0.045,0.06,0.02,16),bronze,0,0.01,0));
+lampG.add(mesh(new T.CylinderGeometry(0.012,0.016,0.13,10),bronze,0,0.085,0));
+lampG.add(mesh(new T.CylinderGeometry(0.05,0.02,0.035,16),bronze,0,0.16,0));
+const flame=new T.Sprite(new T.SpriteMaterial({map:softTex,color:0xffb347,transparent:true,depthWrite:false,blending:T.AdditiveBlending}));
+flame.scale.set(0.09,0.13,1); flame.position.set(0,0.22,0); lampG.add(flame);
+lampG.position.set(-0.45,TABLE.y,-2.55); scene.add(lampG);
+
+/* ---------- the egg ---------- */
+const egg={mode:'bowl',bx:0,bz:0,bvx:0,bvz:0,sqx:0,sqz:0,sqT:0,p:new T.Vector3(),v:new T.Vector3(),heading:0,roll:0,spin:0,spinT:0,spinRate:0,
+  slide:new T.Vector2(),curve:0,curveT:0,evade:0,minSpeed:0,maxSpeed:1.2,friction:0.35,boost:0,hop:null,lift:null,yl:null,
+  face:'smug',faceT:0,faceThen:'smug',squash:1,yawWob:0,kickCD:0,underT:0,underDir:{x:0,z:0},power:0,bounces:0,faceYaw:0};
+const eggCv=cvs(512,256), eggCtx=eggCv.getContext('2d'), eggTex=new T.CanvasTexture(eggCv);
+const speckles=[]; for(let i=0;i<90;i++) speckles.push({x:Math.random()*512,y:20+Math.random()*216,r:0.6+Math.random()*1.6,a:0.08+Math.random()*0.14});
+const cracks=[];
+for(let i=0;i<22;i++){
+  const pts=[]; let x=60+Math.random()*392, y=40+Math.random()*176, a=Math.random()*TAU; pts.push([x,y]);
+  const n=5+((Math.random()*6)|0);
+  for(let k=0;k<n;k++){ a+=rand(-0.9,0.9); const l=rand(8,20); x+=Math.cos(a)*l; y+=Math.sin(a)*l; pts.push([x,y]); }
+  cracks.push(pts);
+}
+let crackLevel=0;
+function drawFace(g,mood){
+  g.save(); g.translate(128,124); g.lineCap='round'; g.lineJoin='round';
+  const INK='#2b1d15'; g.strokeStyle=INK; g.fillStyle=INK;
+  const dot=(x,y,r)=>{ g.beginPath(); g.arc(x,y,r,0,TAU); g.fill(); };
+  const line=(pts,w)=>{ g.lineWidth=w; g.beginPath(); pts.forEach((p,i)=>i?g.lineTo(p[0],p[1]):g.moveTo(p[0],p[1])); g.stroke(); };
+  const ring=(x,y,r,w)=>{ g.fillStyle='#fffdf7'; g.beginPath(); g.arc(x,y,r,0,TAU); g.fill(); g.fillStyle=INK; g.lineWidth=w; g.beginPath(); g.arc(x,y,r,0,TAU); g.stroke(); };
+  const blush=a=>{ g.fillStyle=`rgba(226,120,104,${a})`; g.beginPath(); g.ellipse(-46,20,14,7,0,0,TAU); g.fill(); g.beginPath(); g.ellipse(46,20,14,7,0,0,TAU); g.fill(); g.fillStyle=INK; };
+  if(mood==='smug'){
+    line([[-42,-10],[-16,-10]],5); line([[16,-10],[42,-10]],5); dot(-25,-4,5.5); dot(31,-4,5.5);
+    line([[14,-30],[42,-37]],4.5); line([[-42,-27],[-16,-25]],4.5);
+    g.lineWidth=5; g.beginPath(); g.moveTo(-16,24); g.quadraticCurveTo(8,34,26,14); g.stroke(); blush(0.3);
+  } else if(mood==='tongue'){
+    line([[-42,-6],[-29,-15],[-16,-6]],5); dot(29,-6,7);
+    g.beginPath(); g.moveTo(-18,14); g.quadraticCurveTo(4,40,26,14); g.closePath(); g.fill();
+    g.fillStyle='#e0727a'; g.beginPath(); g.ellipse(6,31,9,11,0.15,0,TAU); g.fill(); g.fillStyle=INK; blush(0.35);
+  } else if(mood==='surprised'){
+    ring(-28,-6,11,3); ring(28,-6,11,3); dot(-28,-6,4.5); dot(28,-6,4.5);
+    g.beginPath(); g.ellipse(0,27,8,10,0,0,TAU); g.fill();
+  } else if(mood==='scared'){
+    ring(-28,-8,12,3); ring(28,-8,12,3); dot(-28,-12,3.5); dot(28,-12,3.5);
+    line([[-40,-28],[-18,-32]],4); line([[18,-32],[40,-28]],4);
+    line([[-20,26],[-12,20],[-4,26],[4,20],[12,26],[20,20]],4);
+    g.fillStyle='#9fd0e8'; g.beginPath(); g.moveTo(52,-30); g.quadraticCurveTo(62,-12,52,-8); g.quadraticCurveTo(42,-12,52,-30); g.fill(); g.fillStyle=INK;
+  } else if(mood==='dizzy'){
+    line([[-36,-14],[-20,2]],5); line([[-20,-14],[-36,2]],5); line([[20,-14],[36,2]],5); line([[36,-14],[20,2]],5);
+    line([[-18,26],[-9,20],[0,26],[9,20],[18,26]],4.5);
+  } else if(mood==='calm'){
+    g.lineWidth=5; g.beginPath(); g.arc(-28,-2,10,Math.PI*1.1,Math.PI*1.9); g.stroke(); g.beginPath(); g.arc(28,-2,10,Math.PI*1.1,Math.PI*1.9); g.stroke();
+    g.beginPath(); g.moveTo(-12,20); g.quadraticCurveTo(0,30,12,20); g.stroke(); blush(0.4);
+  } else if(mood==='shock'){
+    ring(-28,-8,14,3); ring(28,-8,14,3); dot(-28,-8,3); dot(28,-8,3);
+    line([[-42,-34],[-16,-30]],4.5); line([[16,-30],[42,-34]],4.5);
+    g.beginPath(); g.ellipse(0,30,13,17,0,0,TAU); g.fill();
+  }
+  g.restore();
+}
+function drawEgg(){
+  const g=eggCtx; g.fillStyle='#f5eddc'; g.fillRect(0,0,512,256);
+  const gr=g.createLinearGradient(0,0,0,256); gr.addColorStop(0,'rgba(255,255,255,0)'); gr.addColorStop(1,'rgba(214,190,150,0.25)'); g.fillStyle=gr; g.fillRect(0,0,512,256);
+  for(const s of speckles){ g.fillStyle=`rgba(150,118,80,${s.a})`; g.beginPath(); g.arc(s.x,s.y,s.r,0,TAU); g.fill(); }
+  drawFace(g,egg.face);
+  const n=Math.min(cracks.length,crackLevel*2);
+  g.lineJoin='round';
+  for(let i=0;i<n;i++){
+    const p=cracks[i];
+    g.strokeStyle='rgba(255,252,244,0.9)'; g.lineWidth=3.4; g.beginPath(); p.forEach(([x,y],k)=>k?g.lineTo(x+1,y+1):g.moveTo(x+1,y+1)); g.stroke();
+    g.strokeStyle='#6f5a40'; g.lineWidth=1.8; g.beginPath(); p.forEach(([x,y],k)=>k?g.lineTo(x,y):g.moveTo(x,y)); g.stroke();
+  }
+  eggTex.needsUpdate=true;
+}
+function setFace(m,dur,then){ if(egg.face!==m){ egg.face=m; drawEgg(); } egg.faceT=dur||0; egg.faceThen=then||'smug'; }
+function updFace(dt){ if(egg.faceT>0){ egg.faceT-=dt; if(egg.faceT<=0&&egg.face!==egg.faceThen){ egg.face=egg.faceThen; drawEgg(); } } }
+function eggPoints(t0,t1,N){
+  const pts=[], L=CFG.eggL, R=CFG.eggR;
+  for(let i=0;i<=N;i++){ const t=(t0+(t1-t0)*i/N)*Math.PI; pts.push(new T.Vector2(Math.max(1e-4,R*Math.sin(t)*(1+0.13*Math.cos(t))),-Math.cos(t)*L/2)); }
+  return pts;
+}
+const eggRoot=new T.Group();
+const eggMesh=new T.Mesh(new T.LatheGeometry(eggPoints(0,1,28),36),new T.MeshStandardMaterial({map:eggTex,roughness:0.42}));
+eggRoot.add(eggMesh); scene.add(eggRoot);
+// broken halves
+const capCv=cvs(128,128), cg=capCv.getContext('2d');
+cg.fillStyle='#fbf8ee'; cg.beginPath(); cg.arc(64,64,63,0,TAU); cg.fill();
+const yg=cg.createRadialGradient(60,58,4,64,64,30); yg.addColorStop(0,'#ffe27a'); yg.addColorStop(1,'#eaa621'); cg.fillStyle=yg; cg.beginPath(); cg.arc(64,64,28,0,TAU); cg.fill();
+const capMat=new T.MeshStandardMaterial({map:new T.CanvasTexture(capCv),roughness:.6});
+const halfShell=new T.MeshStandardMaterial({color:0xf3ebda,roughness:.5,side:T.DoubleSide});
+const halves=new T.Group(), hBot=new T.Group(), hTop=new T.Group();
+hBot.add(new T.Mesh(new T.LatheGeometry(eggPoints(0,0.5,14),28),halfShell));
+const capB=new T.Mesh(new T.CircleGeometry(CFG.eggR*0.98,24),capMat); capB.rotation.x=-Math.PI/2; capB.position.y=0.001; hBot.add(capB);
+hTop.add(new T.Mesh(new T.LatheGeometry(eggPoints(0.5,1,14),28),halfShell));
+const capT=new T.Mesh(new T.CircleGeometry(CFG.eggR*0.98,24),capMat); capT.rotation.x=Math.PI/2; capT.position.y=-0.001; hTop.add(capT);
+halves.add(hBot,hTop); halves.visible=false; scene.add(halves);
+const shadowMat=new T.MeshBasicMaterial({map:softTex,color:0x000000,transparent:true,opacity:0.42,depthWrite:false});
+const eggShadow=new T.Mesh(new T.CircleGeometry(0.08,20),shadowMat); eggShadow.rotation.x=-Math.PI/2; eggShadow.visible=false; scene.add(eggShadow);
+const eggMarker=new T.Mesh(new T.RingGeometry(0.1,0.125,36),new T.MeshBasicMaterial({color:0xe0442f,transparent:true,opacity:0.75,depthWrite:false,side:T.DoubleSide}));
+eggMarker.rotation.x=-Math.PI/2; eggMarker.visible=false; scene.add(eggMarker);
+
+/* ---------- chopsticks and aiming ring ---------- */
+const chop=new T.Group();
+const stickGeo=new T.CylinderGeometry(0.0065,0.0032,0.26,8); stickGeo.translate(0,0.13,0);
+const stickMat=M({color:0x5b1d14,roughness:.38});
+const stickA=new T.Mesh(stickGeo,stickMat), stickB=new T.Mesh(stickGeo,stickMat);
+chop.add(stickA,stickB); chop.visible=false; scene.add(chop);
+function setChopGap(gap){
+  stickA.position.set(gap/2,0,0); stickB.position.set(-gap/2,0,0);
+  const a=Math.atan2(gap/2-0.004,0.26); stickA.rotation.z=a; stickB.rotation.z=-a;
+}
+const reticle=new T.Group();
+const retMat=new T.MeshBasicMaterial({color:0xe0442f,transparent:true,opacity:.9,depthTest:false,side:T.DoubleSide});
+const retRing=new T.Mesh(new T.RingGeometry(0.024,0.031,40),retMat); retRing.rotation.x=-Math.PI/2; retRing.renderOrder=10;
+const retDot=new T.Mesh(new T.CircleGeometry(0.0045,16),retMat); retDot.rotation.x=-Math.PI/2; retDot.renderOrder=10;
+reticle.add(retRing,retDot); reticle.visible=false; scene.add(reticle);
+
+/* ---------- 王藍田 ---------- */
+function buildMan(){
+  const root=new T.Group();
+  const robeMat=M({color:0x2f3c60,roughness:.85}), innerMat=M({color:0xebe1c9,roughness:.9}), skinMat=M({color:0xe8c6a0,roughness:.7});
+  const hairMat=M({color:0x1c1714,roughness:.6}), beltMat=M({color:0x9a7838,roughness:.6});
+  const body=new T.Group(); root.add(body);
+  body.add(mesh(new T.CylinderGeometry(0.15,0.3,0.92,16),robeMat,0,0.64,0));
+  body.add(mesh(new T.CylinderGeometry(0.305,0.305,0.05,16),M({color:0x7a2a1c,roughness:.7}),0,0.205,0));
+  body.add(mesh(new T.CylinderGeometry(0.2,0.2,0.06,16),beltMat,0,0.8,0));
+  body.add(mesh(new T.CylinderGeometry(0.07,0.13,0.1,14),innerMat,0,1.11,0));
+  for(const s of [-1,1]){ const sl=mesh(new T.CylinderGeometry(0.075,0.14,0.52,12),robeMat,s*0.21,0.82,0.03); sl.rotation.z=s*0.32; body.add(sl); }
+  const head=mesh(new T.SphereGeometry(0.115,22,16),skinMat,0,1.27,0); body.add(head);
+  const hair=mesh(new T.SphereGeometry(0.119,22,12,0,TAU,0,Math.PI*0.52),hairMat,0,1.275,-0.006); hair.rotation.x=-0.35; body.add(hair);
+  body.add(mesh(new T.BoxGeometry(0.075,0.08,0.13),hairMat,0,1.4,-0.01));
+  const pin=mesh(new T.CylinderGeometry(0.006,0.006,0.22,6),beltMat,0,1.41,-0.01); pin.rotation.z=Math.PI/2; body.add(pin);
+  const dark=new T.MeshBasicMaterial({color:0x1a1210});
+  for(const s of [-1,1]){
+    body.add(mesh(new T.SphereGeometry(0.013,8,6),dark,s*0.042,1.285,0.104));
+    const brow=mesh(new T.BoxGeometry(0.04,0.008,0.01),dark,s*0.045,1.318,0.103); brow.rotation.z=-s*0.35; body.add(brow);
+  }
+  const feet=[], woodM=M({color:0xa36f3e,roughness:.7}), toothM=M({color:0x6b4423,roughness:.8}), sockM=M({color:0xf2eee4,roughness:.9});
+  for(const s of [-1,1]){
+    const f=new T.Group(); f.position.set(s*0.085,0,0);
+    const base=new T.Group();
+    base.add(mesh(new T.BoxGeometry(0.11,0.035,0.3),woodM,0,0.1475,0));
+    for(const z of [-0.1,0.1]) base.add(mesh(new T.BoxGeometry(0.1,0.13,0.03),toothM,0,0.065,z));
+    base.add(mesh(new T.TorusGeometry(0.045,0.009,6,14,Math.PI),toothM,0,0.165,0.07));
+    f.add(base);
+    const sock=mesh(new T.BoxGeometry(0.075,0.05,0.2),sockM,0,0.19,0.02); f.add(sock);
+    f.userData={base,sock,s}; root.add(f); feet.push(f);
+  }
+  root.userData={body,head,skinMat,feet};
+  return root;
+}
+const man=buildMan(); scene.add(man);
+const manShadow=new T.Mesh(new T.CircleGeometry(0.34,24),shadowMat.clone()); manShadow.rotation.x=-Math.PI/2; manShadow.material.opacity=0.38; scene.add(manShadow);
+const manS={heading:0,speed:0,target:null,wobble:0,stun:0,stunMax:1,fallDir:1,stomp:null,dive:null,intro:null,walkPhase:0,bodyBase:0,lastFoot:0,clogPop:1,mode:'seated'};
+function manMode(mode){
+  const ud=man.userData; manS.mode=mode;
+  manS.bodyBase = mode==='clogs'?0 : mode==='bare'?-0.165 : -0.525;
+  ud.body.position.y=manS.bodyBase;
+  for(const f of ud.feet){
+    f.visible=mode!=='seated'; f.userData.base.visible=mode==='clogs';
+    f.userData.sock.position.y = mode==='clogs'?0.19:0.025;
+    f.position.set(f.userData.s*0.085,0,0); f.rotation.set(0,0,0);
+  }
+}
+const SKIN=new T.Color(0xe8c6a0), FACE_RED=new T.Color(0xd65a44), FACE_PURPLE=new T.Color(0x7a3a8e);
+function updManVisual(dt){
+  const ud=man.userData, a=G.anger, c=ud.skinMat.color;
+  if(a<45) c.copy(SKIN); else if(a<80) c.copy(SKIN).lerp(FACE_RED,(a-45)/35); else c.copy(FACE_RED).lerp(FACE_PURPLE,(a-80)/20);
+  if(manS.clogPop<1){ manS.clogPop=Math.min(1,manS.clogPop+dt*4); const k=easeOut(manS.clogPop); for(const f of ud.feet) f.userData.base.scale.setScalar(Math.max(0.001,k)); }
+  manShadow.visible=man.visible&&manS.mode!=='seated';
+  if(manShadow.visible){ manShadow.position.set(man.position.x,0.004,man.position.z); }
+}
+
+/* ---------- dust and shell bits ---------- */
+const dustPool=[];
+for(let i=0;i<40;i++){ const s=new T.Sprite(new T.SpriteMaterial({map:softTex,color:0xb59a74,transparent:true,depthWrite:false,opacity:0})); s.visible=false; scene.add(s); dustPool.push({s,life:0,max:1,size:0.1,v:new T.Vector3()}); }
+function dust(x,y,z,n,spread,size,color){
+  spread=spread||0.5; size=size||0.12;
+  for(let i=0;i<n;i++){
+    const p=dustPool.find(d=>d.life<=0); if(!p) break;
+    p.s.material.color.setHex(color||0xb59a74);
+    p.s.position.set(x+rand(-0.05,0.05)*size*8,y+rand(0,0.03),z+rand(-0.05,0.05)*size*8);
+    const a=Math.random()*TAU, sp=rand(0.3,1)*spread; p.v.set(Math.cos(a)*sp,rand(0.15,0.6)*spread,Math.sin(a)*sp);
+    p.max=p.life=rand(0.45,0.8); p.size=size*rand(0.7,1.3); p.s.visible=true;
+  }
+}
+function updDust(dt){
+  for(const p of dustPool){
+    if(p.life<=0) continue;
+    p.life-=dt; if(p.life<=0){ p.s.visible=false; continue; }
+    p.s.position.addScaledVector(p.v,dt); p.v.multiplyScalar(Math.exp(-3*dt));
+    const k=p.life/p.max; p.s.material.opacity=0.55*k; const sc=p.size*(1.6-k*0.6); p.s.scale.set(sc,sc,sc);
+  }
+}
+const shellGeo=new T.TetrahedronGeometry(0.011), shellMat=M({color:0xf3ecdc,roughness:.6});
+const shells=[];
+for(let i=0;i<28;i++){ const m=new T.Mesh(shellGeo,shellMat); m.visible=false; scene.add(m); shells.push({m,life:0,v:new T.Vector3(),w:new T.Vector3()}); }
+function shellBurst(pos,n,speed){
+  for(let i=0;i<n;i++){
+    const s=shells.find(q=>q.life<=0); if(!s) break;
+    s.m.position.copy(pos); s.m.position.y+=rand(-0.02,0.04);
+    s.v.set(rand(-1,1),rand(0.4,1.2),rand(-1,1)).multiplyScalar(speed||0.8); s.w.set(rand(-9,9),rand(-9,9),rand(-9,9));
+    s.life=rand(0.6,1.0); s.m.visible=true;
+  }
+}
+function updShells(dt){
+  for(const s of shells){
+    if(s.life<=0) continue;
+    s.life-=dt; if(s.life<=0){ s.m.visible=false; continue; }
+    s.v.y-=4.5*dt; s.m.position.addScaledVector(s.v,dt);
+    if(s.m.position.y<0.01){ s.m.position.y=0.01; s.v.multiplyScalar(0.4); s.v.y=Math.abs(s.v.y)*0.3; }
+    s.m.rotation.x+=s.w.x*dt; s.m.rotation.y+=s.w.y*dt;
+  }
+}
+
+/* ---------- game state, timers ---------- */
+const G={state:'title',anger:0,grace:100,t:0,timeScale:1,slowmo:0,slowScale:1,paused:false,lock:false,inPlay:false,clock:0,clockOn:false,stats:null,direct:false};
+function resetStats(){ G.stats={stab:0,slip:0,miss:0,pinch:0,power:0,stomp:0,caught:0,near:0,trip:0,bite:0}; }
+resetStats();
+function addAnger(v){ G.anger=clamp(G.anger+v,0,100); }
+function addGrace(v){ G.grace=clamp(G.grace+v,0,100); }
+function slowmo(scale,dur){ G.slowScale=scale; G.slowmo=dur; }
+const timers=[];
+function after(sec,fn){ timers.push({t:sec,fn}); }
+function runTimers(dt){ for(let i=timers.length-1;i>=0;i--){ const tm=timers[i]; tm.t-=dt; if(tm.t<=0){ timers.splice(i,1); tm.fn(); } } }
+
+/* ---------- camera rig ---------- */
+const camRig={pos:new T.Vector3(2,2,0),look:new T.Vector3(0,0.7,-2.8),gPos:new T.Vector3(2,2,0),gLook:new T.Vector3(0,0.7,-2.8),rate:3,shake:0,roll:0,gRoll:0};
+const tmpV=new T.Vector3(), tmpP=new T.Vector3(), tmpL=new T.Vector3(), tmpF=new T.Vector3(), tmpR=new T.Vector3(), tmpU=new T.Vector3();
+const AX=new T.Vector3(1,0,0), AY=new T.Vector3(0,1,0), AZ=new T.Vector3(0,0,1);
+function camSet(pos,look,cut){ camRig.gPos.copy(pos); camRig.gLook.copy(look); if(cut){ camRig.pos.copy(pos); camRig.look.copy(look); } }
+function shake(a){ const d=camRig.pos.distanceTo(camRig.look); camRig.shake=Math.max(camRig.shake,a*d*(REDUCED?0.35:1)); }
+function updCamera(rdt){
+  const k=1-Math.exp(-camRig.rate*rdt);
+  camRig.pos.lerp(camRig.gPos,k); camRig.look.lerp(camRig.gLook,k);
+  camera.position.copy(camRig.pos);
+  if(camRig.shake>0.0001){ const s=camRig.shake; camera.position.x+=rand(-s,s); camera.position.y+=rand(-s,s)*0.6; camera.position.z+=rand(-s,s); camRig.shake*=Math.exp(-rdt*9); }
+  camera.lookAt(camRig.look);
+  camRig.roll=damp(camRig.roll,camRig.gRoll,4,rdt); if(Math.abs(camRig.roll)>1e-4) camera.rotateZ(camRig.roll);
+}
+let HFOV=42;
+function setHFov(deg){ if(deg!==HFOV){ HFOV=deg; resize(); } }
+function resize(){
+  const w=window.innerWidth||1, h=window.innerHeight||1, asp=w/h;
+  renderer.setSize(w,h,false); camera.aspect=asp;
+  camera.fov = asp<1 ? Math.min(80,2*Math.atan(Math.tan(T.MathUtils.degToRad(HFOV/2))/asp)*180/Math.PI) : 50;
+  camera.updateProjectionMatrix();
+}
+window.addEventListener('resize',resize); resize();
+const raycaster=new T.Raycaster(), ndc=new T.Vector2(), hPlane=new T.Plane(new T.Vector3(0,1,0),0), projV=new T.Vector3();
+function screenToPlane(x,y,h,out){ const r=canvas.getBoundingClientRect(); ndc.set((x-r.left)/r.width*2-1,-((y-r.top)/r.height)*2+1); raycaster.setFromCamera(ndc,camera); hPlane.constant=-h; return raycaster.ray.intersectPlane(hPlane,out); }
+function toScreen(v){ const r=canvas.getBoundingClientRect(); projV.copy(v).project(camera); return {x:r.left+(projV.x+1)/2*r.width,y:r.top+(1-projV.y)/2*r.height,behind:projV.z>1}; }
+
+/* ---------- interface ---------- */
+const UI={hud:$('hud'),stageNo:$('stageNo'),stageName:$('stageName'),angerFill:$('angerFill'),graceFill:$('graceFill'),angerNum:$('angerNum'),graceNum:$('graceNum'),
+  hint:$('hint'),slipNow:$('slipNow'),vignette:$('vignette'),flash:$('flash'),big:$('big'),pops:$('pops'),dm:$('danmaku'),grip:$('grip'),gripZone:$('gripZone'),
+  gripNeedle:$('gripNeedle'),power:$('power'),powerFill:$('powerFill'),powerNeedle:$('powerNeedle'),bite:$('bite'),biteFill:$('biteFill'),balance:$('balance'),
+  balanceFill:$('balanceFill'),act:$('actBtn'),splat:$('splat'),mute:$('muteBtn'),waves:$('muteWaves')};
+function hint(t){ UI.hint.textContent=t||''; UI.hint.hidden=!t; }
+function setStage(n,name){ UI.stageNo.textContent=['','第一關','第二關','第三關','第四關'][n]; UI.stageName.textContent=name; UI.slipNow.innerHTML=STRIP[n]||''; UI.slipNow.hidden=!STRIP[n]; }
+function showBig(html,cls){ const b=UI.big; b.className='big'+(cls?' '+cls:''); b.innerHTML=html; void b.offsetWidth; b.classList.add('go'); }
+function flash(){ const f=UI.flash; f.classList.remove('go'); void f.offsetWidth; f.classList.add('go'); }
+function popAt(text,x,y,cls){ const d=document.createElement('div'); d.className='pop'+(cls?' '+cls:''); d.textContent=text; d.style.left=x+'px'; d.style.top=y+'px'; UI.pops.appendChild(d); setTimeout(()=>d.remove(),1100); }
+function popWorld(text,v,cls){ const s=toScreen(v); if(!s.behind) popAt(text,clamp(s.x,70,window.innerWidth-70),clamp(s.y-34,90,window.innerHeight-70),cls); }
+let dmCount=0;
+function danmaku(text){
+  if(!text||dmCount>=4) return;
+  const d=document.createElement('div'); d.className='dm'+(text.indexOf('王右軍')===0?' wang':''); d.textContent=text; d.style.top=(Math.random()*85)+'%';
+  UI.dm.appendChild(d); dmCount++;
+  d.addEventListener('animationend',()=>{ d.remove(); dmCount--; });
+}
+let shownA=-1, shownG=-1;
+function updHUD(){
+  const a=Math.round(G.anger), g=Math.round(G.grace);
+  if(a!==shownA){ UI.angerFill.style.width=clamp(G.anger,0,100)+'%'; UI.angerNum.textContent=a; shownA=a; UI.vignette.classList.toggle('hot',G.inPlay&&a>=80); }
+  if(g!==shownG){ UI.graceFill.style.width=clamp(G.grace,0,100)+'%'; UI.graceNum.textContent=g; shownG=g; }
+  UI.vignette.style.opacity=G.inPlay?(clamp((G.anger-12)/88,0,1)*0.9).toFixed(3):'0';
+}
+function placeGauge(el,v,dx,dy){ const s=toScreen(v); el.style.left=clamp(s.x+dx,8,window.innerWidth-44)+'px'; el.style.top=clamp(s.y+dy,90,window.innerHeight-180)+'px'; }
+function setPower(p){ UI.powerFill.style.height=(p*100)+'%'; UI.powerNeedle.style.bottom=(p*100)+'%'; }
+
+/* ---------- sound (synthesised, starts on first tap) ---------- */
+const AU={ctx:null,master:null,noise:null,muted:store.get('lt-muted')==='1'};
+function audioInit(){
+  if(AU.ctx){ if(AU.ctx.state==='suspended') AU.ctx.resume().catch(()=>{}); return; }
+  const AC=window.AudioContext||window.webkitAudioContext; if(!AC) return;
+  try{
+    AU.ctx=new AC(); AU.master=AU.ctx.createGain(); AU.master.gain.value=AU.muted?0:0.6; AU.master.connect(AU.ctx.destination);
+    const n=AU.ctx.sampleRate, b=AU.ctx.createBuffer(1,n,n), d=b.getChannelData(0); for(let i=0;i<n;i++) d[i]=Math.random()*2-1; AU.noise=b;
+  }catch(e){ AU.ctx=null; }
+}
+function tone(o){
+  if(!AU.ctx||AU.muted) return;
+  const c=AU.ctx, t=c.currentTime+(o.delay||0), dur=o.dur||0.2, osc=c.createOscillator(), g=c.createGain();
+  osc.type=o.type||'sine'; osc.frequency.setValueAtTime(o.f0||440,t); if(o.f1) osc.frequency.exponentialRampToValueAtTime(o.f1,t+dur);
+  g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(o.vol||0.2,t+(o.att||0.006)); g.gain.exponentialRampToValueAtTime(0.0001,t+dur);
+  osc.connect(g); g.connect(AU.master); osc.start(t); osc.stop(t+dur+0.05);
+}
+function noise(o){
+  if(!AU.ctx||AU.muted||!AU.noise) return;
+  const c=AU.ctx, t=c.currentTime+(o.delay||0), dur=o.dur||0.1, src=c.createBufferSource(), f=c.createBiquadFilter(), g=c.createGain();
+  src.buffer=AU.noise; f.type=o.filter||'bandpass'; f.frequency.setValueAtTime(o.f0||1000,t); if(o.f1) f.frequency.exponentialRampToValueAtTime(o.f1,t+dur); f.Q.value=o.q||1;
+  g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(o.vol||0.2,t+0.004); g.gain.exponentialRampToValueAtTime(0.0001,t+dur);
+  src.connect(f); f.connect(g); g.connect(AU.master); src.start(t,Math.random()*0.5); src.stop(t+dur+0.05);
+}
+const sfx={
+  clack(){ noise({dur:.05,vol:.35,f0:3200,q:4}); tone({type:'triangle',f0:2100,dur:.05,vol:.12}); },
+  slip(){ tone({f0:320,f1:980,dur:.16,vol:.25}); tone({f0:980,f1:600,dur:.12,vol:.12,delay:.15}); },
+  boing(){ tone({f0:180,f1:520,dur:.25,vol:.28}); },
+  thud(){ tone({f0:110,f1:40,dur:.3,vol:.5}); noise({dur:.12,vol:.35,filter:'lowpass',f0:500}); },
+  whoosh(){ noise({dur:.3,vol:.25,f0:600,f1:2400,q:1.2}); },
+  tick(){ tone({type:'triangle',f0:880,dur:.05,vol:.08}); },
+  pop(){ tone({f0:600,f1:1400,dur:.08,vol:.2}); },
+  gong(){ [1,2.76,5.4].forEach((m,i)=>tone({f0:150*m,dur:1.6-i*.4,vol:.22/(i+1)})); tone({f0:70,f1:45,dur:.5,vol:.45}); },
+  rage(){ tone({type:'sawtooth',f0:90,f1:60,dur:.6,vol:.16}); this.gong(); },
+  crunch(){ noise({dur:.08,vol:.4,f0:rand(1400,2600),q:2}); noise({dur:.04,vol:.25,filter:'highpass',f0:4000,delay:.03}); },
+  crack(){ noise({dur:.18,vol:.45,filter:'highpass',f0:1800}); tone({type:'square',f0:300,f1:120,dur:.12,vol:.08}); },
+  spit(){ noise({dur:.14,vol:.4,f0:2600,f1:700,q:1.5}); tone({f0:500,f1:200,dur:.1,vol:.12}); },
+  splat(){ noise({dur:.22,vol:.35,filter:'lowpass',f0:1200,f1:300}); },
+  chime(){ [523,659,784,1046].forEach((f,i)=>tone({type:'triangle',f0:f,dur:1.2,vol:.16,delay:i*.12})); },
+  pluck(){ tone({type:'triangle',f0:392,dur:.5,vol:.12}); tone({type:'sine',f0:784,dur:.35,vol:.05}); }
+};
+function setMuted(m){
+  AU.muted=!!m; store.set('lt-muted',AU.muted?'1':'0');
+  if(AU.master) AU.master.gain.value=AU.muted?0:0.6;
+  UI.waves.setAttribute('d',AU.muted?'M16 9.5l5 5M21 9.5l-5 5':'M15.5 9.5a3.5 3.5 0 0 1 0 5M18 7a7 7 0 0 1 0 10');
+  UI.mute.setAttribute('aria-label',AU.muted?'開啟音效':'關閉音效');
+}
+UI.mute.addEventListener('click',()=>{ audioInit(); setMuted(!AU.muted); UI.mute.blur(); });
+
+/* ---------- egg orientation and motion ---------- */
+const qA=new T.Quaternion(), qB=new T.Quaternion(), qC=new T.Quaternion();
+function faceYawTo(from,to){ return Math.atan2(-(to.z-from.z),to.x-from.x); }
+function eggUpright(yaw,ax,az,lean){
+  qA.setFromAxisAngle(AY,yaw);
+  if(lean>1e-4&&(ax*ax+az*az)>1e-8){ tmpV.set(ax,0,az).normalize(); qB.setFromAxisAngle(tmpV,lean); eggRoot.quaternion.multiplyQuaternions(qB,qA); }
+  else eggRoot.quaternion.copy(qA);
+}
+function eggLying(heading,roll,wob){
+  qA.setFromAxisAngle(AY,heading); qB.setFromAxisAngle(AX,roll); qC.setFromAxisAngle(AZ,-Math.PI/2+wob);
+  eggRoot.quaternion.copy(qA).multiply(qB).multiply(qC);
+}
+function yIn(r){ return 0.02+0.056*Math.min(1,(r/BOWL.rIn)*(r/BOWL.rIn)); }
+function eggBowlPos(out){ const r=Math.hypot(egg.bx,egg.bz); return out.set(BOWL.x+egg.bx,BOWL.y+yIn(r)+CFG.eggL/2,BOWL.z+egg.bz); }
+function eggWorldPos(out){ return egg.mode==='bowl'?eggBowlPos(out):out.copy(egg.p); }
+const eggW=new T.Vector3();
+function updEggVisual(dt){
+  updFace(dt);
+  egg.squash=damp(egg.squash,1,10,dt);
+  const sq=egg.squash, sx=1/Math.sqrt(sq); eggMesh.scale.set(sx,sq,sx);
+  const m=egg.mode;
+  if(m==='bowl'){
+    eggBowlPos(eggRoot.position); const sp=Math.hypot(egg.bvx,egg.bvz); egg.yawWob+=dt*(1.5+sp*6);
+    eggUpright(faceYawTo(eggRoot.position,camRig.pos)+Math.sin(egg.yawWob)*0.25,egg.bvz,-egg.bvx,Math.min(0.45,sp*0.5));
+  } else if(m==='hop'){
+    eggRoot.position.copy(egg.p); eggUpright(faceYawTo(egg.p,camRig.pos)+Math.sin(G.t*20)*0.2,1,0,0.12);
+  } else if(m==='lift'||m==='held'||m==='yl'){
+    eggRoot.position.copy(egg.p); eggUpright(faceYawTo(egg.p,camRig.pos),1,0,m==='held'?Math.sin(G.t*30)*0.06:0);
+  } else if(m==='air'){
+    eggRoot.position.copy(egg.p); tmpV.set(1,0,0.4).normalize(); eggRoot.quaternion.setFromAxisAngle(tmpV,egg.spin);
+  } else if(m==='spinUp'){
+    eggRoot.position.copy(egg.p);
+  } else if(m==='floor'||m==='under'||m==='frozen'||m==='grabbed'){
+    eggRoot.position.copy(egg.p); eggLying(egg.heading,egg.roll,Math.sin(egg.roll*0.5)*0.12);
+  } else if(m==='bite'){
+    eggRoot.position.copy(egg.p); eggUpright(egg.faceYaw+Math.sin(G.t*25)*(sq<0.98?0.05:0.015),1,0,0);
+  }
+  const onFloor=(m==='floor'||m==='under'||m==='frozen'||m==='spinUp'||m==='air'||m==='grabbed')&&eggRoot.visible&&eggMesh.visible;
+  eggShadow.visible=onFloor;
+  if(onFloor){ eggShadow.position.set(egg.p.x,0.003,egg.p.z); const h=Math.max(0,egg.p.y-CFG.eggR), s=1+h*1.5; eggShadow.scale.set(s,s,s); eggShadow.material.opacity=0.42/(1+h*3); }
+  const mk=onFloor&&m!=='air'&&m!=='grabbed'&&(G.state==='s3'||(G.state==='s4'&&S.s4.phase==='grab'));
+  eggMarker.visible=mk;
+  if(mk){ eggMarker.position.set(egg.p.x,0.006,egg.p.z); const pl=1+0.12*Math.sin(G.t*6); eggMarker.scale.set(pl,pl,pl); }
+}
+function updEggBowl(dt,holding){
+  if(egg.mode==='hop'){ updHop(dt); return; }
+  if(egg.mode!=='bowl') return;
+  egg.sqT-=dt;
+  if(egg.sqT<=0){ egg.sqT=rand(0.3,0.8); const a=Math.random()*TAU, mg=holding?0:0.25; egg.sqx=Math.cos(a)*mg; egg.sqz=Math.sin(a)*mg; }
+  const k=16, c=holding?6:0.9;
+  egg.bvx+=(-k*egg.bx+egg.sqx)*dt; egg.bvz+=(-k*egg.bz+egg.sqz)*dt;
+  const f=Math.exp(-c*dt); egg.bvx*=f; egg.bvz*=f;
+  egg.bx+=egg.bvx*dt; egg.bz+=egg.bvz*dt;
+  const r=Math.hypot(egg.bx,egg.bz), R=BOWL.rMax;
+  if(r>R){ const nx=egg.bx/r, nz=egg.bz/r; egg.bx=nx*R; egg.bz=nz*R; const vn=egg.bvx*nx+egg.bvz*nz; if(vn>0){ egg.bvx-=1.6*vn*nx; egg.bvz-=1.6*vn*nz; if(vn>0.4) sfx.tick(); } }
+}
+function startHop(dx,dz){
+  const from=eggBowlPos(new T.Vector3());
+  const lx=clamp(BOWL.x+dx*0.32,TABLE.x-TABLE.w/2+0.08,TABLE.x+TABLE.w/2-0.08), lz=clamp(BOWL.z+dz*0.26,TABLE.z-TABLE.d/2+0.07,TABLE.z+TABLE.d/2-0.07);
+  egg.hop={phase:'out',t:0,from,to:new T.Vector3(lx,TABLE.y+CFG.eggL/2,lz),back:null};
+  egg.mode='hop'; egg.p.copy(from); popWorld(pick(TXT.hop),from,'warn'); if(Math.random()<0.6) danmaku(pick(DM.hop));
+}
+function updHop(dt){
+  const h=egg.hop; h.t+=dt;
+  if(h.phase==='out'){
+    const u=Math.min(1,h.t/0.4); egg.p.lerpVectors(h.from,h.to,u); egg.p.y+=Math.sin(u*Math.PI)*0.13;
+    if(u>=1){ h.phase='pause'; h.t=0; sfx.tick(); setFace('tongue',0.9); }
+  } else if(h.phase==='pause'){
+    egg.p.copy(h.to); egg.p.y+=Math.abs(Math.sin(h.t*12))*0.012;
+    if(h.t>0.6){ h.phase='back'; h.t=0; h.back=egg.p.clone(); }
+  } else {
+    const u=Math.min(1,h.t/0.5), e=easeInOut(u), tx=BOWL.x+(h.to.x-BOWL.x)*0.12, tz=BOWL.z+(h.to.z-BOWL.z)*0.12;
+    egg.p.set(lerp(h.back.x,tx,e),lerp(h.back.y,BOWL.y+yIn(0.03)+CFG.eggL/2,e)+Math.sin(u*Math.PI)*0.12,lerp(h.back.z,tz,e));
+    if(u>=1){ egg.mode='bowl'; egg.bx=tx-BOWL.x; egg.bz=tz-BOWL.z; egg.bvx=(BOWL.x-h.to.x)*0.8; egg.bvz=(BOWL.z-h.to.z)*0.8; egg.hop=null; sfx.tick(); }
+  }
+}
+function updEggAir(dt){
+  egg.v.y-=9.8*dt; egg.p.addScaledVector(egg.v,dt); egg.spin+=dt*14;
+  if(egg.p.y<=CFG.eggR&&egg.v.y<0){
+    egg.p.y=CFG.eggR; const first=egg.bounces===0; egg.bounces++;
+    if(first){
+      slowmo(0.3,0.7); sfx.thud(); sfx.boing(); shake(0.03); dust(egg.p.x,0.01,egg.p.z,10,0.6,0.1);
+      popWorld(pick(TXT.land),egg.p,'warn'); danmaku(pick(DM.land));
+      egg.v.y=1.5+egg.power*2.4; egg.v.x=egg.v.x*0.55+rand(-0.6,0.6); egg.v.z*=0.55;
+    } else {
+      egg.v.y=-egg.v.y*0.42; egg.v.x*=0.8; egg.v.z*=0.8; if(egg.v.y>0.4) sfx.tick();
+      if(egg.v.y<0.55) startSpinUp();
+    }
+  }
+  bounceWalls();
+}
+function startSpinUp(){ egg.mode='spinUp'; egg.spinT=0; egg.spinRate=26; egg.v.y=0; egg.p.y=CFG.eggL/2; egg.slide.set(egg.v.x*0.3,egg.v.z*0.3); setFace('tongue',2.2); }
+function updSpinUp(dt){
+  egg.spinT+=dt; egg.spin+=egg.spinRate*dt; egg.spinRate=Math.max(10,egg.spinRate-dt*6);
+  egg.p.x+=egg.slide.x*dt; egg.p.z+=egg.slide.y*dt; egg.slide.multiplyScalar(Math.exp(-1.5*dt));
+  const prec=0.12+egg.spinT*0.06;
+  qA.setFromAxisAngle(AY,egg.spin); tmpV.set(Math.cos(egg.spinT*9),0,Math.sin(egg.spinT*9)); qB.setFromAxisAngle(tmpV,prec); eggRoot.quaternion.multiplyQuaternions(qB,qA);
+  egg.p.y=CFG.eggL/2*Math.cos(prec);
+  if(egg.spinT>1.5){
+    egg.mode='floor'; egg.p.y=CFG.eggR;
+    const sp=0.9+egg.power*1.1, ang=rand(-1.1,1.1);
+    egg.v.set(Math.sin(ang)*sp,0,Math.cos(ang)*sp); egg.heading=ang; egg.curve=rand(-1.2,1.2); egg.curveT=1;
+    egg.minSpeed=0.3; egg.maxSpeed=1.6; egg.friction=0.3; egg.evade=0; sfx.tick();
+  }
+}
+function bounceWalls(){
+  const F=FLOOR; let hit=false;
+  if(egg.p.x<F.minX){ egg.p.x=F.minX; egg.v.x=Math.abs(egg.v.x)*0.85; hit=true; }
+  if(egg.p.x>F.maxX){ egg.p.x=F.maxX; egg.v.x=-Math.abs(egg.v.x)*0.85; hit=true; }
+  if(egg.p.z<F.minZ){ egg.p.z=F.minZ; egg.v.z=Math.abs(egg.v.z)*0.85; hit=true; }
+  if(egg.p.z>F.maxZ){ egg.p.z=F.maxZ; egg.v.z=-Math.abs(egg.v.z)*0.85; hit=true; }
+  if(hit&&Math.hypot(egg.v.x,egg.v.z)>0.6) sfx.tick();
+}
+function updEggFloor(dt){
+  if(egg.mode==='under'){
+    egg.underT-=dt;
+    if(egg.underT<=0){ egg.mode='floor'; egg.v.set(egg.underDir.x*2.3,0,egg.underDir.z*2.3); egg.boost=1.3; sfx.pop(); setFace('tongue',1.3); }
+    return;
+  }
+  if(egg.mode!=='floor') return;
+  egg.curveT-=dt; if(egg.curveT<=0){ egg.curveT=rand(0.6,1.6); egg.curve=rand(-1.4,1.4); }
+  let sp=Math.hypot(egg.v.x,egg.v.z);
+  if(sp>0.02){ const ang=egg.curve*dt*Math.min(1,sp), c=Math.cos(ang), s=Math.sin(ang), vx=egg.v.x*c-egg.v.z*s, vz=egg.v.x*s+egg.v.z*c; egg.v.x=vx; egg.v.z=vz; }
+  if(egg.evade>0&&man.visible&&!manS.intro){
+    const dx=egg.p.x-man.position.x, dz=egg.p.z-man.position.z, d=Math.hypot(dx,dz), R=0.95;
+    if(d<R&&d>1e-3){ const a=egg.evade*(1-d/R); egg.v.x+=dx/d*a*dt; egg.v.z+=dz/d*a*dt; }
+  }
+  const fr=Math.exp(-egg.friction*dt); egg.v.x*=fr; egg.v.z*=fr;
+  egg.boost=Math.max(0,egg.boost-dt*0.8);
+  const maxS=egg.maxSpeed+egg.boost;
+  sp=Math.hypot(egg.v.x,egg.v.z);
+  if(sp<egg.minSpeed){ if(sp<1e-4){ const a=Math.random()*TAU; egg.v.x=Math.cos(a)*egg.minSpeed; egg.v.z=Math.sin(a)*egg.minSpeed; } else { const k=egg.minSpeed/sp; egg.v.x*=k; egg.v.z*=k; } }
+  else if(sp>maxS){ const k=maxS/sp; egg.v.x*=k; egg.v.z*=k; }
+  egg.p.x+=egg.v.x*dt; egg.p.z+=egg.v.z*dt; egg.p.y=CFG.eggR;
+  bounceWalls();
+  sp=Math.hypot(egg.v.x,egg.v.z); egg.roll+=sp*dt/CFG.eggR;
+  if(sp>0.03) egg.heading=angDamp(egg.heading,Math.atan2(egg.v.x,egg.v.z),8,dt);
+}
+
+/* ---------- 王藍田 on the floor: walk, stomp, trip, dive ---------- */
+function setManTarget(v){
+  if(!manS.target) manS.target=new T.Vector3();
+  manS.target.set(clamp(v.x,FLOOR.minX+0.15,FLOOR.maxX-0.15),0,clamp(v.z,FLOOR.minZ+0.15,FLOOR.maxZ-0.15));
+}
+function distManEgg(){ return Math.hypot(egg.p.x-man.position.x,egg.p.z-man.position.z); }
+function animFeet(){
+  const ud=man.userData, ph=manS.walkPhase, k=Math.min(1,manS.speed);
+  ud.feet.forEach((f,i)=>{
+    const p=ph+(i?Math.PI:0), lift=k>0.04?Math.max(0,Math.sin(p))*0.07*k:0;
+    f.position.set(f.userData.s*0.085,lift,k>0.04?Math.cos(p)*0.1*k:0); f.rotation.x=-lift*3.5;
+  });
+  ud.body.position.y=manS.bodyBase+(k>0.04?Math.abs(Math.sin(ph))*0.022*k:0);
+  ud.body.rotation.z=Math.sin(ph)*0.04*k+Math.sin(G.t*7)*manS.wobble*0.2;
+}
+function trip(){
+  manS.stun=manS.stunMax=1.15; manS.fallDir=Math.random()<0.5?-1:1; manS.wobble=0; manS.target=null; manS.speed=0;
+  G.stats.trip++; addAnger(CFG.s3.trip); addGrace(-6); sfx.thud(); shake(0.025);
+  tmpV.copy(man.position); tmpV.y=1.2; popWorld(pick(TXT.trip),tmpV,'warn'); danmaku(pick(DM.trip));
+  dust(man.position.x,0.02,man.position.z,10,0.6);
+}
+function updMan(dt){
+  const ud=man.userData;
+  if(manS.stun>0){
+    manS.stun-=dt; const u=manS.stunMax-manS.stun;
+    const ang=u<0.25?(u/0.25)*1.35:(manS.stun<0.35?Math.max(0,manS.stun/0.35)*1.35:1.35);
+    ud.body.rotation.z=manS.fallDir*ang; ud.body.position.y=manS.bodyBase;
+    if(manS.stun<=0) ud.body.rotation.z=0;
+    return;
+  }
+  if(manS.stomp){ updStomp(dt); man.rotation.y=manS.heading; return; }
+  if(manS.dive){ updDive(dt); return; }
+  let moving=false;
+  if(manS.target){
+    const dx=manS.target.x-man.position.x, dz=manS.target.z-man.position.z, d=Math.hypot(dx,dz);
+    if(d>0.06){
+      const prevH=manS.heading;
+      manS.heading=angDamp(manS.heading,Math.atan2(dx,dz),10,dt);
+      const turn=Math.min(6,Math.abs(angDiff(prevH,manS.heading))/Math.max(dt,1e-4));
+      manS.speed=damp(manS.speed,Math.min(d>1.2?CFG.s3.run:CFG.s3.walk,d*3),6,dt);
+      man.position.x+=Math.sin(manS.heading)*manS.speed*dt; man.position.z+=Math.cos(manS.heading)*manS.speed*dt;
+      manS.wobble+=(0.06*manS.speed*manS.speed+0.12*manS.speed*turn)*dt; moving=true;
+    } else if(!ptr.down) manS.target=null;
+  }
+  if(!moving) manS.speed=damp(manS.speed,0,10,dt);
+  manS.wobble=Math.max(0,manS.wobble-(moving?0.12:0.55)*dt);
+  man.position.x=clamp(man.position.x,FLOOR.minX+0.15,FLOOR.maxX-0.15); man.position.z=clamp(man.position.z,FLOOR.minZ+0.1,FLOOR.maxZ-0.15);
+  manS.walkPhase+=manS.speed*dt*9;
+  man.rotation.y=manS.heading; animFeet();
+  if(manS.wobble>1) trip();
+}
+function startStomp(){
+  if(manS.stomp||manS.stun>0||manS.intro||manS.dive) return;
+  const mx=man.position.x, mz=man.position.z;
+  let tx,tz;
+  if(distManEgg()<CFG.s3.reach+0.18&&egg.mode==='floor'){ const lead=CFG.s3.windup*0.5; tx=egg.p.x+egg.v.x*lead; tz=egg.p.z+egg.v.z*lead; }
+  else { tx=mx+Math.sin(manS.heading)*0.36; tz=mz+Math.cos(manS.heading)*0.36; }
+  if(Math.hypot(tx-mx,tz-mz)>0.05) manS.heading=Math.atan2(tx-mx,tz-mz);
+  manS.lastFoot=1-manS.lastFoot;
+  const fi=manS.lastFoot, s=man.userData.feet[fi].userData.s, c=Math.cos(manS.heading), sn=Math.sin(manS.heading);
+  const offX=s*0.085*c+0.12*sn, offZ=-s*0.085*sn+0.12*c;
+  manS.stomp={t:0,fi,fromX:mx,fromZ:mz,toX:clamp(tx-offX,FLOOR.minX+0.15,FLOOR.maxX-0.15),toZ:clamp(tz-offZ,FLOOR.minZ+0.1,FLOOR.maxZ-0.15),resolved:false};
+  manS.target=null; sfx.whoosh();
+  UI.act.classList.add('pressed'); setTimeout(()=>UI.act.classList.remove('pressed'),140);
+}
+function updStomp(dt){
+  const st=manS.stomp, ud=man.userData, f=ud.feet[st.fi], W=CFG.s3.windup, D=0.06;
+  st.t+=dt;
+  if(st.t<W){
+    const u=st.t/W, e=easeOut(u);
+    man.position.x=lerp(st.fromX,st.toX,e); man.position.z=lerp(st.fromZ,st.toZ,e);
+    f.position.y=0.3*Math.sin(u*Math.PI/2); f.position.z=0.12*u; f.rotation.x=-0.5*u; ud.body.rotation.x=-0.12*u;
+  } else if(st.t<W+D){
+    const u=(st.t-W)/D; man.position.x=st.toX; man.position.z=st.toZ;
+    f.position.y=0.3*(1-u); f.position.z=0.12; f.rotation.x=-0.5*(1-u);
+  } else {
+    f.position.y=0; f.rotation.x=0; f.position.z=0.12;
+    if(!st.resolved){ st.resolved=true; resolveStomp(st); }
+    if(st.t>W+D+0.36){ manS.stomp=null; ud.body.rotation.x=0; f.position.z=0; }
+  }
+}
+function resolveStomp(st){
+  const h=manS.heading, c=Math.cos(h), sn=Math.sin(h), s=man.userData.feet[st.fi].userData.s;
+  const fx=man.position.x+s*0.085*c+0.12*sn, fz=man.position.z-s*0.085*sn+0.12*c;
+  G.stats.stomp++; addGrace(-5); sfx.thud(); shake(0.022); dust(fx,0.02,fz,12,0.55);
+  const dx=egg.p.x-fx, dz=egg.p.z-fz, lx=dx*c-dz*sn, lz=dx*sn+dz*c, d=Math.hypot(dx,dz);
+  if(egg.mode!=='floor'){ addAnger(CFG.s3.miss); popWorld(pick(TXT.smiss),tmpV.set(fx,0.3,fz),'small'); return; }
+  if(Math.abs(lx)<0.07&&Math.abs(lz)<0.085){
+    G.stats.caught++; addAnger(CFG.s3.caught); egg.mode='under'; egg.underT=0.3; egg.v.set(0,0,0);
+    const side=lx>=0?1:-1; egg.underDir={x:c*side,z:-sn*side};
+    popWorld(pick(TXT.caught),tmpV.set(fx,0.35,fz),'warn'); if(Math.random()<0.7) danmaku(pick(DM.caught)); setFace('smug');
+  } else if(Math.abs(lx)<0.1&&Math.abs(lz)<0.17){
+    addAnger(CFG.s3.tooth); const sg=lz>=0?1:-1, sp=rand(1.6,2.1), lat=rand(-0.5,0.5);
+    egg.v.set((sn*sg+c*lat)*sp,0,(c*sg-sn*lat)*sp); egg.boost=1.0; sfx.boing(); setFace('tongue',1);
+    popWorld(pick(TXT.tooth),tmpV.set(fx,0.35,fz),'warn'); if(Math.random()<0.5) danmaku(pick(DM.tooth));
+  } else if(d<0.34){
+    G.stats.near++; addAnger(CFG.s3.near); const k=rand(0.8,1.2)/Math.max(d,0.01);
+    egg.v.x+=dx*k; egg.v.z+=dz*k; egg.boost=0.6; setFace('tongue',0.8);
+    popWorld(pick(TXT.near),tmpV.set(fx,0.35,fz),'small');
+  } else {
+    addAnger(CFG.s3.miss); popWorld(pick(TXT.smiss),tmpV.set(fx,0.3,fz),'small'); if(Math.random()<0.3) danmaku(pick(DM.smiss));
+  }
+}
+function checkKick(dt){
+  egg.kickCD=Math.max(0,egg.kickCD-dt);
+  if(manS.stomp||manS.dive||egg.mode!=='floor'||egg.kickCD>0) return;
+  const dx=egg.p.x-man.position.x, dz=egg.p.z-man.position.z, d=Math.hypot(dx,dz);
+  if(d<0.2&&d>1e-3){ egg.v.x+=dx/d*1.4; egg.v.z+=dz/d*1.4; egg.kickCD=0.8; addAnger(CFG.s3.kick); sfx.tick(); popWorld(pick(TXT.kick),egg.p,'small'); }
+}
+function startDive(tx,tz,hit){
+  manS.dive={t:0,fromX:man.position.x,fromZ:man.position.z,tx,tz,hit,landed:false};
+  manS.heading=Math.atan2(tx-man.position.x,tz-man.position.z); man.rotation.y=manS.heading; manS.target=null; sfx.whoosh();
+}
+function updDive(dt){
+  const d=manS.dive, ud=man.userData, T1=0.42; d.t+=dt;
+  const u=Math.min(1,d.t/T1), e=easeOut(u), fx=Math.sin(manS.heading), fz=Math.cos(manS.heading);
+  if(!d.landed||d.hit){
+    ud.body.rotation.x=e*1.45;
+    man.position.x=lerp(d.fromX,d.tx-fx*1.2,e); man.position.z=lerp(d.fromZ,d.tz-fz*1.2,e); man.position.y=Math.sin(u*Math.PI)*0.22;
+  }
+  if(u>=1&&!d.landed){
+    d.landed=true; man.position.y=0; sfx.thud(); shake(0.035); dust(d.tx,0.02,d.tz,14,0.8);
+    if(d.hit) onGrab(); else popWorld(pick(TXT.dmiss),tmpV.set(d.tx,0.3,d.tz),'small');
+  }
+  if(d.landed&&!d.hit&&d.t>T1+0.55){ ud.body.rotation.x=0; man.position.y=0; manS.dive=null; }
+}
+function camFollow(){
+  const mx=man.position.x, mz=man.position.z, cx=lerp(mx,egg.p.x,0.3), cz=lerp(mz,egg.p.z,0.3), d=Math.hypot(egg.p.x-mx,egg.p.z-mz);
+  let k=clamp(0.9+d*0.2,1,1.7); if(camera.aspect<1) k*=1.15;
+  tmpP.set(cx,Math.min(2.9,2.1*k),Math.max(ROOM.minZ+0.4,cz-2.1*k)); tmpL.set(cx,0.35,cz+0.15);
+  camSet(tmpP,tmpL);
+}
+function updBalanceUI(){
+  if(G.state!=='s3'||manS.intro||manS.stun>0||manS.wobble<0.2){ UI.balance.hidden=true; return; }
+  UI.balance.hidden=false; tmpV.copy(man.position); tmpV.y+=1.62; const s=toScreen(tmpV);
+  UI.balance.style.left=s.x+'px'; UI.balance.style.top=s.y+'px'; UI.balanceFill.style.width=Math.min(100,manS.wobble*100)+'%';
+}
+
+/* ---------- scene setups shared by stages ---------- */
+const CAM1={pos:new T.Vector3(0,1.13,-3.3),look:new T.Vector3(0,0.70,-2.72)};
+function resetScene(){
+  egg.mode='bowl'; egg.bx=0.015; egg.bz=-0.01; egg.bvx=0; egg.bvz=0; egg.hop=null; egg.squash=1; egg.boost=0;
+  crackLevel=0; egg.face='smug'; egg.faceT=0; drawEgg();
+  eggRoot.visible=true; eggMesh.visible=true; halves.visible=false; halves.scale.setScalar(1); hTop.position.set(0,0,0); hTop.rotation.set(0,0,0); hBot.rotation.set(0,0,0);
+  man.visible=true; manMode('seated'); man.position.set(SEAT.x,TA_H,SEAT.z); man.rotation.set(0,0,0);
+  man.userData.body.rotation.set(0,0,0); man.userData.body.scale.set(1,1,1);
+  Object.assign(manS,{heading:0,speed:0,target:null,wobble:0,stun:0,stomp:null,dive:null,intro:null,walkPhase:0,clogPop:1});
+  for(const f of man.userData.feet) f.userData.base.scale.setScalar(1);
+  chop.visible=false; reticle.visible=false; eggShadow.visible=false;
+  UI.splat.innerHTML=''; UI.splat.classList.remove('fade');
+  camRig.gRoll=0;
+  UI.grip.hidden=true; UI.power.hidden=true; UI.bite.hidden=true; UI.balance.hidden=true; UI.act.hidden=true;
+}
+function prepFirstPerson(){ resetScene(); man.visible=false; camRig.rate=4; camSet(CAM1.pos,CAM1.look,true); setHFov(34); }
+function prepFloor(manAtCouch){
+  resetScene();
+  egg.mode='floor'; egg.p.set(rand(-0.9,0.9),CFG.eggR,rand(0.3,1.5)); const a=rand(0,TAU); egg.v.set(Math.cos(a)*0.6,0,Math.sin(a)*0.6); egg.curve=rand(-1,1);
+  egg.minSpeed=0.3; egg.maxSpeed=1.15; egg.friction=0.35;
+  if(!manAtCouch){ manMode('clogs'); man.position.set(0,0,-1.2); }
+}
+
+/* ---------- interstitials: rage stamp and bamboo card ---------- */
+function rage(word,then){
+  G.lock=true; slowmo(0.3,0.9); sfx.rage(); shake(0.03); flash(); showBig(word,''); danmaku(pick(DM.rage));
+  after(1.5,()=>{ G.lock=false; then(); });
+}
+let cardThen=null;
+function openCard(n,then){
+  const c=CARDS[n]; G.paused=true; G.lock=false;
+  $('cardTitle').textContent=c.title; $('cardSeal').textContent=c.seal;
+  $('cardSlips').innerHTML=c.slips.map(s=>`<span class="slip">${mark(s)}</span>`).join('');
+  $('cardGloss').innerHTML=glossHTML(c.gloss);
+  cardThen=then; $('cardScreen').hidden=false; sfx.pluck();
+  try{ $('cardNext').focus({preventScroll:true}); }catch(e){}
+}
+$('cardNext').addEventListener('click',()=>{ $('cardScreen').hidden=true; G.paused=false; const f=cardThen; cardThen=null; if(f) f(); });
+
+/* ---------- states ---------- */
+const S={};
+function go(name,arg){ const prev=S[G.state]; if(prev&&prev.exit) prev.exit(); G.state=name; const st=S[name]; if(st&&st.enter) st.enter(arg); }
+
+S.title={
+  enter(){
+    G.inPlay=false; G.clockOn=false; UI.hud.hidden=true; hint(''); resetScene(); setHFov(42);
+    $('titleScreen').hidden=false; camRig.rate=1.2; this.t=0;
+    const best=parseFloat(store.get('lt-best'));
+    const bl=$('bestLine'); if(best>0){ bl.textContent=`這台裝置最快的暴走紀錄：${best.toFixed(1)} 秒`; bl.hidden=false; } else bl.hidden=true;
+  },
+  update(dt,rdt){
+    this.t+=rdt; const a=0.55+Math.sin(this.t*0.12)*0.28;
+    camSet(tmpP.set(Math.sin(a)*3.4,2.0,-2.85+Math.cos(a)*3.4),tmpL.set(0,0.72,-2.85));
+    updEggBowl(dt,false);
+  },
+  exit(){ $('titleScreen').hidden=true; }
+};
+
+/* stage 1: 以箸刺之 */
+const S1={aim:new T.Vector3(),target:new T.Vector3(),chopTip:new T.Vector3(),hand:new T.Vector3(),bx:new T.Vector3(),by:new T.Vector3(),bz:new T.Vector3(),mtx:new T.Matrix4()};
+S.s1={
+  enter(){
+    setStage(1,'以箸刺之'); G.inPlay=true; UI.hud.hidden=false;
+    prepFirstPerson(); G.anger=0;
+    chop.visible=true; reticle.visible=true;
+    S1.aim.set(BOWL.x,EGG_CY,BOWL.z); S1.stab=null; S1.pinch=null; S1.press=null; S1.ending=false;
+    hint(COARSE?'點一下：用筷子刺　長按蛋：改用夾的':'點一下：用筷子刺　按住蛋不放：改用夾的');
+    showBig('第一關<small>以箸刺之</small>','stage');
+    after(1.4,()=>{ if(G.state==='s1') danmaku(pick(DM.start)); });
+  },
+  update(dt){
+    if(!S1.ending&&G.anger>=CFG.s1.threshold){
+      S1.ending=true; this.cancelPinch(); S1.press=null;
+      rage('便大怒！',()=>openCard(1,()=>go('s2')));
+    }
+    if(!S1.ending) addAnger(CFG.s1.timeAnger*dt);
+    if(egg.mode==='yl') this.updYaliang(dt); else updEggBowl(dt,!!S1.pinch);
+    const A=CFG.s1.swayBase+CFG.s1.swayAnger*clamp(G.anger/CFG.s1.threshold,0,1.3), t=G.t;
+    S1.target.set(S1.aim.x+A*(Math.sin(t*1.7)+0.5*Math.sin(t*3.3+1.3)),EGG_CY,S1.aim.z+A*0.8*(Math.cos(t*1.25)+0.5*Math.sin(t*2.7+0.4)));
+    reticle.position.copy(S1.target); reticle.visible=!S1.ending;
+    if(S1.press&&!S1.pinch&&!S1.stab&&!S1.ending&&!S1.press.moved){
+      const held=(performance.now()-S1.press.t0)/1000;
+      if(held>CFG.s1.hold&&!S1.press.tried){
+        S1.press.tried=true;
+        if(egg.mode!=='bowl'||Math.hypot(S1.target.x-eggWorldPos(eggW).x,S1.target.z-eggW.z)>CFG.s1.pinchR) popAt('要長按在蛋上才夾得到',S1.press.x,S1.press.y-50,'small');
+        else if(Math.hypot(egg.bvx,egg.bvz)>CFG.s1.pinchMaxSpeed) popAt('蛋還在滑，等它停一下',S1.press.x,S1.press.y-50,'small');
+        else this.startPinch();
+      }
+    }
+    if(S1.pinch) this.updPinch(dt);
+    if(S1.stab) this.updStab(dt);
+  },
+  late(){
+    if(!chop.visible) return;
+    let gap=0.012;
+    if(S1.stab){ gap=0.006; }
+    else if(S1.pinch||egg.mode==='yl'){ eggWorldPos(S1.chopTip); gap=S1.pinch?lerp(0.17,0.124,Math.min(1,S1.pinch.m/Math.max(0.1,S1.pinch.zc))):0.124; }
+    else { S1.chopTip.copy(S1.target); S1.chopTip.y+=0.11; }
+    tmpF.subVectors(camRig.look,camRig.pos).normalize(); tmpR.crossVectors(tmpF,AY).normalize(); tmpU.crossVectors(tmpR,tmpF).normalize();
+    S1.hand.copy(camRig.pos).addScaledVector(tmpR,0.17).addScaledVector(tmpU,-0.09).addScaledVector(tmpF,0.12);
+    S1.by.subVectors(S1.hand,S1.chopTip).normalize(); S1.bx.crossVectors(S1.by,AY);
+    if(S1.bx.lengthSq()<1e-6) S1.bx.set(1,0,0); S1.bx.normalize(); S1.bz.crossVectors(S1.bx,S1.by).normalize();
+    S1.mtx.makeBasis(S1.bx,S1.by,S1.bz); chop.quaternion.setFromRotationMatrix(S1.mtx); chop.position.copy(S1.chopTip); setChopGap(gap);
+  },
+  setAim(p){ const v=screenToPlane(p.x,p.y,EGG_CY,tmpV); if(v){ S1.aim.x=clamp(v.x,BOWL.x-0.32,BOWL.x+0.32); S1.aim.z=clamp(v.z,BOWL.z-0.26,BOWL.z+0.26); } },
+  down(p){ if(S1.ending) return; if(!p.key) this.setAim(p); S1.press={t0:performance.now(),x:p.x,y:p.y,sx:p.x,sy:p.y,moved:false,tried:false}; },
+  move(p){
+    if(S1.ending) return; this.setAim(p);
+    if(S1.press){ if(Math.hypot(p.x-S1.press.sx,p.y-S1.press.sy)>14) S1.press.moved=true; S1.press.x=p.x; S1.press.y=p.y; }
+  },
+  up(p){
+    const pr=S1.press; S1.press=null; if(!pr||S1.ending) return;
+    if(S1.pinch){ if(p.cancel) this.cancelPinch(); else this.releasePinch(); return; }
+    if(!p.cancel) this.startStab();
+  },
+  key(down,code){
+    if(code!=='Space') return; const s=toScreen(S1.aim);
+    if(down) this.down({x:s.x,y:s.y,key:true}); else this.up({x:s.x,y:s.y});
+  },
+  startStab(){
+    if(S1.stab) return;
+    G.stats.stab++; addGrace(-4); sfx.tick();
+    S1.stab={t:0,target:S1.target.clone(),resolved:false};
+  },
+  updStab(dt){
+    const st=S1.stab; st.t+=dt; const t=st.t; let h;
+    if(t<0.08) h=lerp(0.11,-0.012,t/0.08); else if(t<0.13) h=-0.012; else if(t<0.3) h=lerp(-0.012,0.11,(t-0.13)/0.17); else { S1.stab=null; return; }
+    if(!st.resolved&&t>=0.055){ st.resolved=true; this.resolveStab(st.target); }
+    S1.chopTip.copy(st.target); S1.chopTip.y+=h;
+  },
+  resolveStab(target){
+    const e=eggWorldPos(eggW), d=Math.hypot(target.x-e.x,target.z-e.z);
+    const hittable=egg.mode==='bowl'||(egg.mode==='hop'&&egg.hop&&egg.hop.phase==='pause');
+    if(hittable&&d<CFG.s1.hitR){
+      G.stats.slip++; addAnger(rand(CFG.s1.hit-1.5,CFG.s1.hit+1.5)); sfx.slip(); shake(0.012);
+      let dx=e.x-target.x, dz=e.z-target.z, dl=Math.hypot(dx,dz);
+      if(dl<0.005){ const a=Math.random()*TAU; dx=Math.cos(a); dz=Math.sin(a); dl=1; }
+      dx/=dl; dz/=dl;
+      if(egg.mode==='hop'){ egg.hop.phase='back'; egg.hop.t=0; egg.hop.back=egg.p.clone(); }
+      else if(Math.random()<CFG.s1.hop) startHop(dx,dz);
+      else { const sp=rand(0.9,1.4), lat=rand(-0.5,0.5); egg.bvx+=dx*sp-dz*lat; egg.bvz+=dz*sp+dx*lat; }
+      setFace('tongue',1.0); popWorld(pick(TXT.slip),e,'warn');
+      dust(e.x,e.y-0.05,e.z,4,0.12,0.02,0xf3ead6);
+      if(Math.random()<0.55) danmaku(pick(DM.slip));
+    } else {
+      G.stats.miss++; addAnger(CFG.s1.miss); sfx.clack(); shake(0.006);
+      popWorld(pick(TXT.miss),target,'small'); if(Math.random()<0.3) danmaku(pick(DM.miss));
+    }
+  },
+  startPinch(){
+    G.stats.pinch++;
+    const ang=clamp(G.anger/CFG.s1.threshold,0,1);
+    S1.pinch={m:0,zc:rand(0.56,0.84),zw:CFG.s1.zoneW*(1-0.45*ang),ph:[Math.random()*6,Math.random()*6,Math.random()*6]};
+    UI.gripZone.style.bottom=((S1.pinch.zc-S1.pinch.zw/2)*100)+'%'; UI.gripZone.style.height=(S1.pinch.zw*100)+'%';
+    UI.gripNeedle.style.bottom='0%'; UI.grip.hidden=false; hint('看準綠色區，放開！'); sfx.tick(); setFace('surprised');
+    if(Math.random()<0.6) danmaku(pick(DM.pinch));
+  },
+  updPinch(dt){
+    const P=S1.pinch, tr=CFG.s1.tremor0+CFG.s1.tremorA*clamp(G.anger/CFG.s1.threshold,0,1), t=G.t;
+    const n=(Math.sin(t*7.3+P.ph[0])+0.7*Math.sin(t*11.1+P.ph[1])+0.4*Math.sin(t*17.9+P.ph[2]))/2.1;
+    P.m+=Math.max(0.2,CFG.s1.grip*(1+tr*n))*dt;
+    UI.gripNeedle.style.bottom=(Math.min(1,P.m)*100)+'%';
+    placeGauge(UI.grip,eggWorldPos(eggW),62,-120);
+    if(P.m>=1) this.pinchFail('hard');
+  },
+  releasePinch(){ const P=S1.pinch; if(!P) return; if(Math.abs(P.m-P.zc)<=P.zw/2) this.pinchWin(); else this.pinchFail(P.m<P.zc?'light':'hard'); },
+  cancelPinch(){ S1.pinch=null; UI.grip.hidden=true; },
+  pinchFail(kind){
+    this.cancelPinch(); if(!S1.ending) hint(COARSE?'點一下：用筷子刺　長按蛋：改用夾的':'點一下：用筷子刺　按住蛋不放：改用夾的');
+    addGrace(-1); const e=eggWorldPos(eggW), a=Math.random()*TAU;
+    if(kind==='light'){ addAnger(CFG.s1.light); sfx.slip(); egg.bvx+=Math.cos(a)*0.7; egg.bvz+=Math.sin(a)*0.7; setFace('tongue',0.9); popWorld(pick(TXT.light),e,'warn'); }
+    else { addAnger(CFG.s1.hard); sfx.boing(); setFace('tongue',1.0); popWorld(pick(TXT.hard),e,'warn'); if(Math.random()<0.5) startHop(Math.cos(a),Math.sin(a)); else { egg.bvx+=Math.cos(a)*1.3; egg.bvz+=Math.sin(a)*1.3; } }
+  },
+  pinchWin(){
+    S1.ending=true; this.cancelPinch(); hint(''); G.clockOn=false; sfx.chime(); setFace('calm',99,'calm');
+    egg.yl={t:0,from:eggBowlPos(new T.Vector3()),done:false}; egg.mode='yl'; egg.p.copy(egg.yl.from);
+    danmaku(pick(DM.yaliang)); showBig('穩穩夾起','soft');
+  },
+  updYaliang(dt){
+    const Y=egg.yl; Y.t+=dt; const u=Math.min(1,Y.t/1.3), e=easeInOut(u);
+    tmpF.subVectors(camRig.look,camRig.pos).normalize(); tmpR.crossVectors(tmpF,AY).normalize(); tmpU.crossVectors(tmpR,tmpF).normalize();
+    tmpP.copy(camRig.pos).addScaledVector(tmpF,0.17).addScaledVector(tmpU,-0.035);
+    egg.p.lerpVectors(Y.from,tmpP,e); egg.p.y+=Math.sin(u*Math.PI)*0.06;
+    if(u>=1&&!Y.done){ Y.done=true; eggRoot.visible=false; chop.visible=false; sfx.pluck(); after(0.5,()=>go('endYaliang')); }
+  },
+  exit(){ reticle.visible=false; chop.visible=false; this.cancelPinch(); }
+};
+
+/* stage 2: 舉以擲地 */
+S.s2={
+  enter(direct){
+    setStage(2,'舉以擲地'); G.inPlay=true; UI.hud.hidden=false;
+    if(direct){ prepFirstPerson(); G.anger=Math.max(G.anger,CFG.s2.start); }
+    chop.visible=false; reticle.visible=false; man.visible=false;
+    egg.mode='lift'; egg.lift={t:0,from:eggWorldPos(new T.Vector3()),to:new T.Vector3(0.11,0.96,-2.92)}; egg.p.copy(egg.lift.from);
+    camRig.rate=3; camSet(tmpP.set(0,1.2,-3.36),tmpL.set(0,0.42,-1.1));
+    hint(COARSE?'按住畫面蓄力，放開就擲出':'按住滑鼠或空白鍵蓄力，放開就擲出');
+    UI.power.hidden=false; setPower(0); this.charging=false; this.p=0; this.ph=0; this.ct=0; this.thrown=false; this.done=false; this.tt=0;
+    setFace('scared'); danmaku(pick(DM.held)); showBig('第二關<small>舉以擲地</small>','stage');
+  },
+  update(dt){
+    if(egg.mode==='lift'){ const L=egg.lift; L.t+=dt; const u=easeOut(Math.min(1,L.t/0.45)); egg.p.lerpVectors(L.from,L.to,u); if(u>=1) egg.mode='held'; }
+    else if(egg.mode==='held'){ const s=this.charging?0.008:0.003; egg.p.set(0.11+rand(-s,s),0.96+rand(-s,s),-2.92+rand(-s,s)); }
+    if(this.charging&&!this.thrown){ this.ct+=dt; this.ph+=dt*(0.9+Math.min(0.8,this.ct*0.25))*TAU; this.p=0.5-0.5*Math.cos(this.ph); setPower(this.p); }
+    if(egg.mode==='air') updEggAir(dt); else if(egg.mode==='spinUp') updSpinUp(dt); else if(egg.mode==='floor') updEggFloor(dt);
+    if(this.thrown){
+      this.tt+=dt;
+      if(egg.mode==='floor'||egg.mode==='spinUp'){ addAnger(dt*6); camSet(tmpP.set(egg.p.x+0.9,1.55,Math.max(ROOM.minZ+0.5,egg.p.z-1.7)),egg.p); }
+      if(egg.mode==='floor'&&G.anger>CFG.s2.end) G.anger=CFG.s2.end;
+      if(!this.done&&this.tt>3.4&&egg.mode==='floor'&&G.anger>=CFG.s2.end-0.01){
+        this.done=true; showBig('圓轉未止……','soft'); after(1.3,()=>openCard(2,()=>go('s3')));
+      }
+    }
+  },
+  down(){ if(this.thrown||(egg.mode!=='held'&&egg.mode!=='lift')) return; this.charging=true; this.ct=0; this.ph=0; },
+  up(p){ if(!this.charging||this.thrown) return; this.charging=false; if(p.cancel) return; this.throwEgg(this.p); },
+  key(down,code){ if(code!=='Space') return; if(down) this.down(); else this.up({}); },
+  throwEgg(power){
+    this.thrown=true; this.tt=0; UI.power.hidden=true; hint('');
+    G.stats.power=Math.round(power*100); addGrace(-15); sfx.whoosh(); setFace('dizzy');
+    const from=egg.p.clone(), to=new T.Vector3(rand(-0.45,0.45),CFG.eggR,-1.15+power*1.6), Tm=0.5-power*0.18;
+    egg.v.set((to.x-from.x)/Tm,(to.y-from.y+0.5*9.8*Tm*Tm)/Tm,(to.z-from.z)/Tm);
+    egg.mode='air'; egg.power=power; egg.bounces=0; egg.spin=0;
+    camRig.rate=3.5; camSet(tmpP.set(1.5,1.85,-3.05),tmpL.set(to.x*0.6,0.25,to.z-0.4));
+    popAt(`擲地力道 ${G.stats.power}%`,window.innerWidth/2,window.innerHeight*0.3,'warn');
+  },
+  exit(){ UI.power.hidden=true; }
+};
+
+/* stage 3: 以屐齒蹍之 */
+S.s3={
+  enter(direct){
+    setStage(3,'以屐齒蹍之'); G.inPlay=true; UI.hud.hidden=false; setHFov(42);
+    if(direct){ prepFloor(true); G.anger=Math.max(G.anger,CFG.s2.end); setFace('smug'); }
+    egg.minSpeed=0.3; egg.maxSpeed=1.15; egg.friction=0.35; egg.evade=CFG.s3.evade; egg.boost=0; egg.kickCD=0;
+    man.visible=true; manMode('bare'); man.position.set(0,TA_H,-2.3); man.rotation.set(0,0,0); manS.heading=0;
+    Object.assign(manS,{target:null,speed:0,wobble:0,stun:0,stomp:null,dive:null,intro:{t:0,landed:false}});
+    chop.visible=false; reticle.visible=false; camRig.rate=3; hint(''); UI.act.hidden=true;
+    showBig('第三關<small>以屐齒蹍之</small>','stage'); this.done=false; this.keys={};
+  },
+  update(dt){
+    updEggFloor(dt);
+    if(manS.intro) this.updIntro(dt);
+    else if(!this.done){ addAnger(CFG.s3.timeAnger*dt); this.keyMove(); updMan(dt); checkKick(dt); }
+    else updMan(dt);
+    camFollow(); updBalanceUI();
+    if(!this.done&&!manS.intro&&G.anger>=CFG.s3.threshold){
+      this.done=true; UI.act.hidden=true; hint(''); UI.balance.hidden=true; manS.target=null;
+      rage('瞋甚！',()=>openCard(3,()=>go('s4')));
+      after(0.6,()=>danmaku(pick(DM.shen)));
+    }
+  },
+  updIntro(dt){
+    const I=manS.intro, ud=man.userData; I.t+=dt;
+    if(I.t<0.35){ ud.body.scale.y=1-0.1*Math.sin(I.t/0.35*Math.PI); }
+    else if(I.t<0.85){ ud.body.scale.y=1; const u=(I.t-0.35)/0.5; man.position.set(0,lerp(TA_H,0,u)+Math.sin(u*Math.PI)*0.35,lerp(-2.3,-1.7,u)); }
+    else if(!I.landed){
+      I.landed=true; man.position.set(0,0,-1.7); sfx.thud(); shake(0.02); dust(0,0.02,-1.7,8,0.5);
+      manMode('clogs'); manS.clogPop=0; for(const f of ud.feet) f.userData.base.scale.setScalar(0.001);
+      tmpV.set(0,1.55,-1.7); popWorld('穿上木屐！',tmpV,'warn'); danmaku(pick(DM.down));
+    } else if(I.t>1.35){
+      manS.intro=null; UI.act.hidden=false; UI.act.innerHTML='蹍<small>踩下去</small>';
+      hint(COARSE?'點地板走過去，按「蹍」踩蛋':'點地板走過去，按「蹍」或空白鍵踩蛋');
+    }
+  },
+  keyMove(){
+    const k=this.keys; let kx=0,kz=0;
+    if(k.KeyW||k.ArrowUp) kz+=1; if(k.KeyS||k.ArrowDown) kz-=1; if(k.KeyA||k.ArrowLeft) kx+=1; if(k.KeyD||k.ArrowRight) kx-=1;
+    if(kx||kz){ const l=Math.hypot(kx,kz); setManTarget(tmpL.set(man.position.x+kx/l*0.8,0,man.position.z+kz/l*0.8)); }
+  },
+  down(p){
+    if(manS.intro||this.done) return; const v=screenToPlane(p.x,p.y,0,tmpP); if(!v) return;
+    if(Math.hypot(v.x-egg.p.x,v.z-egg.p.z)<0.22&&distManEgg()<CFG.s3.reach+0.2){ startStomp(); return; }
+    setManTarget(v);
+  },
+  move(p){ if(!ptr.down||manS.intro||this.done) return; const v=screenToPlane(p.x,p.y,0,tmpP); if(v) setManTarget(v); },
+  up(){},
+  key(down,code){ if(code==='Space'){ if(down&&!manS.intro&&!this.done) startStomp(); return; } this.keys[code]=down; },
+  act(){ if(!manS.intro&&!this.done) startStomp(); },
+  exit(){ UI.act.hidden=true; UI.balance.hidden=true; this.keys={}; }
+};
+
+/* stage 4: 復於地取內口中，齧破即吐之 */
+const halfOpen={t:0};
+S.s4={
+  enter(direct){
+    setStage(4,'齧破即吐之'); G.inPlay=true; UI.hud.hidden=false; setHFov(42);
+    if(direct){ prepFloor(false); G.anger=Math.max(G.anger,CFG.s3.threshold); camSet(tmpP.set(0,2.6,-3.4),tmpL.set(0,0.15,0),true); }
+    if(manS.stomp){ manS.stomp=null; man.userData.body.rotation.x=0; }
+    if(egg.mode!=='floor'){ egg.mode='floor'; }
+    egg.maxSpeed=0.25; egg.minSpeed=0.12; egg.evade=0.5; egg.friction=1.2; egg.boost=0;
+    this.phase='grab'; this.meter=0; this.canSpit=false; this.splatted=false; this.spitT=0;
+    UI.act.hidden=true; hint('撲上去！點那顆蛋，把它抓起來'); setFace('scared',99,'scared');
+    showBig('第四關<small>齧破即吐之</small>','stage');
+  },
+  update(dt){
+    if(this.phase==='grab'){ updEggFloor(dt); updMan(dt); camFollow(); addAnger(0.4*dt); if(G.anger>CFG.s3.threshold+4) G.anger=CFG.s3.threshold+4; }
+    else if(this.phase==='bite'){
+      this.meter=Math.max(0,this.meter-CFG.s4.decay*dt); UI.biteFill.style.width=(this.meter*100)+'%';
+      G.anger=Math.max(G.anger,80+20*this.meter);
+    } else if(this.phase==='broken'){
+      halfOpen.t+=dt; const u=Math.min(1,halfOpen.t/0.35);
+      hTop.position.set(0,0.03*u,0); hTop.rotation.z=-0.6*u; hBot.rotation.z=0.25*u;
+    } else if(this.phase==='spitting'){
+      this.spitT+=dt; const u=Math.min(1,this.spitT/0.22);
+      halves.position.lerpVectors(egg.p,camRig.pos,u*0.8); halves.scale.setScalar(1+u*1.6);
+      if(u>=1&&!this.splatted){ this.splatted=true; halves.visible=false; splat(); sfx.splat(); shake(0.02); showBig('即吐之！',''); G.clockOn=false; after(1.7,()=>openCard(4,()=>go('endHistory'))); }
+    }
+  },
+  down(p){
+    if(this.phase==='grab'){
+      if(manS.dive||manS.stun>0) return; const v=screenToPlane(p.x,p.y,0,tmpP); if(!v) return;
+      const hit=Math.hypot(v.x-egg.p.x,v.z-egg.p.z)<0.3;
+      startDive(hit?egg.p.x:v.x,hit?egg.p.z:v.z,hit); if(hit) egg.mode='frozen';
+    } else if(this.phase==='bite') this.bite();
+    else if(this.phase==='spit'&&this.canSpit) this.spit();
+  },
+  key(down,code){
+    if(!down||code!=='Space') return;
+    if(this.phase==='bite') this.bite(); else if(this.phase==='spit'&&this.canSpit) this.spit();
+    else if(this.phase==='grab'&&!manS.dive&&manS.stun<=0){ startDive(egg.p.x,egg.p.z,true); egg.mode='frozen'; }
+  },
+  act(){ if(this.phase==='spit'&&this.canSpit) this.spit(); },
+  toBite(){
+    this.phase='bite'; this.meter=0; UI.bite.hidden=false; UI.biteFill.style.width='0%';
+    hint(COARSE?'狂點畫面！把蛋咬破':'狂點滑鼠或空白鍵！把蛋咬破');
+    man.visible=false;
+    const h=manS.heading, fx=Math.sin(h), fz=Math.cos(h), ex=egg.p.x, ez=egg.p.z;
+    tmpP.set(ex-fx*0.46,0.31,ez-fz*0.46); camRig.rate=8; camSet(tmpP,tmpL.set(ex,0.27,ez),true); camRig.gRoll=0.1;
+    egg.mode='bite'; egg.p.set(ex,0.27,ez); egg.faceYaw=faceYawTo(egg.p,tmpP); crackLevel=0; setFace('shock',99,'shock');
+    danmaku(pick(DM.bite)); showBig('內口中','soft');
+  },
+  bite(){
+    G.stats.bite++; addGrace(-1); sfx.crunch(); shake(0.012); egg.squash=0.86;
+    this.meter=Math.min(1,this.meter+CFG.s4.perBite);
+    const lvl=Math.floor(this.meter*10); if(lvl!==crackLevel){ crackLevel=lvl; drawEgg(); }
+    shellBurst(egg.p,2,0.6);
+    popAt(pick(TXT.bite),window.innerWidth*rand(0.3,0.7),window.innerHeight*rand(0.32,0.6),'small');
+    if(this.meter>=1) this.breakEgg();
+  },
+  breakEgg(){
+    this.phase='broken'; UI.bite.hidden=true; hint(''); sfx.crack(); shake(0.03); showBig('齧破！','');
+    eggRoot.visible=false; halves.visible=true; halves.position.copy(egg.p); halves.scale.setScalar(1);
+    halves.rotation.set(0,egg.faceYaw,0); halfOpen.t=0; shellBurst(egg.p,10,1.0); G.anger=100;
+    after(0.7,()=>{ this.phase='spit'; this.canSpit=true; hint('吐！'); UI.act.hidden=false; UI.act.innerHTML='吐<small>呸出去</small>'; danmaku('書童：大人，吐這邊！'); });
+  },
+  spit(){ this.canSpit=false; UI.act.hidden=true; hint(''); sfx.spit(); this.spitT=0; this.phase='spitting'; addGrace(-15); danmaku(pick(DM.spit)); },
+  exit(){ UI.act.hidden=true; UI.bite.hidden=true; camRig.gRoll=0; }
+};
+function onGrab(){
+  egg.mode='grabbed'; tmpV.copy(egg.p); tmpV.y=0.35; popWorld('取！',tmpV,'warn'); sfx.pop();
+  after(0.45,()=>{ if(G.state==='s4') S.s4.toBite(); });
+}
+function splat(){
+  const W=window.innerWidth, H=window.innerHeight, base=Math.min(W,H);
+  let html='';
+  for(let i=0;i<8;i++){
+    const yolk=i>=6, s=yolk?base*rand(0.06,0.1):base*rand(0.12,0.3);
+    html+=`<div class="blob${yolk?' yolk':''}" style="left:${(W*rand(0.2,0.8)-s/2).toFixed(0)}px;top:${(H*rand(0.22,0.72)-s/2).toFixed(0)}px;width:${s.toFixed(0)}px;height:${(s*rand(0.75,1.1)).toFixed(0)}px;animation-delay:${(i*0.03).toFixed(2)}s"></div>`;
+  }
+  UI.splat.classList.remove('fade'); UI.splat.innerHTML=html;
+  after(1.1,()=>UI.splat.classList.add('fade'));
+}
+
+/* ---------- endings ---------- */
+function hasteTitle(sec){
+  if(sec<=40) return ['性急宗師','比王藍田還急，史書該改寫你'];
+  if(sec<=60) return ['暴躁名士','急得很道地，王藍田本人認證'];
+  if(sec<=90) return ['火爆書生','有點急，但還不到王藍田的程度'];
+  return ['慢郎中','你太有耐心了，一點都不像王藍田'];
+}
+function graceGrade(g){ return g>=90?'S':g>=75?'A':g>=60?'B':g>=45?'C':g>=30?'D':'F'; }
+function endWide(){
+  G.inPlay=false; UI.hud.hidden=true; UI.act.hidden=true; hint(''); halves.visible=false; setHFov(42);
+  camRig.rate=2; camRig.gRoll=0; camSet(tmpP.set(2.2,1.9,2.2),tmpL.set(0,0.6,-0.8));
+}
+function setEndActions(list){
+  const box=$('endActions'); box.innerHTML='';
+  list.forEach(([label,cls,fn])=>{ const b=document.createElement('button'); b.type='button'; b.className='btn'+(cls?' '+cls:''); b.textContent=label; b.addEventListener('click',fn); box.appendChild(b); });
+}
+S.endHistory={
+  enter(){
+    endWide(); man.visible=true; manMode('clogs'); man.userData.body.rotation.set(0,0,0); man.position.y=0; manS.stomp=null; manS.dive=null; manS.stun=0;
+    man.rotation.y=Math.atan2(2.2-man.position.x,2.2-man.position.z); eggRoot.visible=false; sfx.gong();
+    const st=G.stats, sec=G.clock, [ht,hd]=hasteTitle(sec), grade=graceGrade(G.grace);
+    if(!G.direct){ const best=parseFloat(store.get('lt-best')); if(!(best>0)||sec<best) store.set('lt-best',sec.toFixed(1)); }
+    const badges=[['史','連老爸都救不了的暴躁']];
+    if(st.caught>0) badges.push(['齒','屐齒卡蛋']);
+    if(st.trip>0) badges.push(['屐','拐腳名士']);
+    if(st.power>=90) badges.push(['擲','怒擲天下']);
+    if(st.slip>=6) badges.push(['刺','百刺不中']);
+    if(st.bite>=25) badges.push(['齧','鐵齒銅牙']);
+    $('endKicker').textContent='史實結局'; $('endTitle').textContent='千古笑柄';
+    $('endBody').innerHTML=`
+      <div class="end-top">
+        <div class="quote"><p class="kicker">王右軍聞而大笑曰</p>
+          <blockquote>「使安期有此性，猶當無一豪可論，況藍田邪？」</blockquote>
+          <p class="plain">就算是他父親王安期有這種脾氣，也沒有一點值得稱道的地方，更何況是王藍田呢？</p></div>
+        <div class="grade"><div class="grade-seal">${grade}</div><span>風度評等</span></div>
+      </div>
+      <div class="haste"><b>性急指數：${ht}</b><span>${G.direct?'這次是從中途選關開始，時間只供參考。':hd}</span></div>
+      <div class="stats">
+        <div class="stat"><b>${st.stab}</b><span>刺</span></div>
+        <div class="stat"><b>${st.slip}</b><span>刺中卻滑走</span></div>
+        <div class="stat"><b>${st.power}%</b><span>擲地力道</span></div>
+        <div class="stat"><b>${st.stomp}</b><span>蹍</span></div>
+        <div class="stat"><b>${st.caught}</b><span>卡進屐齒</span></div>
+        <div class="stat"><b>${st.trip}</b><span>拐到腳</span></div>
+        <div class="stat"><b>${st.bite}</b><span>齧</span></div>
+        <div class="stat"><b>${sec.toFixed(1)}</b><span>總秒數</span></div>
+      </div>
+      <div class="badges">${badges.map(([i,t])=>`<span class="badge"><i>${i}</i>${t}</span>`).join('')}</div>
+      <details><summary>王右軍這句話怎麼解釋</summary><dl class="gloss">${glossHTML(CARDS[5].gloss)}</dl></details>`;
+    setEndActions([['動作排序挑戰','',openOrder],['讀完整課文','ghost',openText],['再玩一次','lacquer',()=>startGame(1)]]);
+    after(1.0,()=>{ if(G.state==='endHistory') $('endScreen').hidden=false; });
+  },
+  exit(){ $('endScreen').hidden=true; }
+};
+S.endYaliang={
+  enter(){
+    endWide(); man.visible=true; manMode('seated'); man.position.set(SEAT.x,TA_H,SEAT.z); man.rotation.set(0,0,0);
+    camSet(tmpP.set(1.6,1.7,-1.0),tmpL.set(0,0.75,-2.9)); eggRoot.visible=false;
+    $('endKicker').textContent='隱藏結局'; $('endTitle').textContent='雅量';
+    $('endBody').innerHTML=`
+      <p class="lead">你穩穩夾起雞蛋，從容吃下。王右軍看傻了眼：「……這還是藍田嗎？」</p>
+      <span class="rect-seal">改列〈雅量〉篇</span>
+      <p>不過，課文裡的王藍田可沒這麼從容。他「以箸刺之，不得，便大怒」，接著擲地、蹍蛋，最後還咬破吐掉。</p>
+      <div class="aside"><b>王藍田也有沉得住氣的時候</b>《世說新語》還記了另一件事：謝無奕跑來把他痛罵一頓，他面對牆壁一動也不動，等人走了很久才回座。當時的人感嘆他「性急而能有所容」。同一個人，換個角度評價就不一樣。</div>`;
+    setEndActions([['挑戰史實路線','',()=>startGame(1)],['讀完整課文','ghost',openText]]);
+    after(0.8,()=>{ if(G.state==='endYaliang') $('endScreen').hidden=false; });
+  },
+  exit(){ $('endScreen').hidden=true; }
+};
+
+/* ---------- reading screens ---------- */
+function openText(){
+  $('fullSlips').innerHTML=FULL.map(s=>`<span class="slip">${mark(s)}</span>`).join('');
+  $('fullGloss').innerHTML=glossHTML([].concat(CARDS[1].gloss,CARDS[2].gloss.filter(g=>g[0]!=='於'),CARDS[3].gloss,CARDS[4].gloss.filter(g=>g[0]!=='於'),CARDS[5].gloss));
+  $('textScreen').hidden=false; $('textScreen').scrollTop=0;
+  try{ $('textClose').focus({preventScroll:true}); }catch(e){}
+}
+$('textClose').addEventListener('click',()=>{ $('textScreen').hidden=true; });
+const ORDER=[['刺','以箸刺之'],['擲','舉以擲地'],['蹍','以屐齒蹍之'],['齧','齧破'],['吐','即吐之']];
+let orderIdx=0;
+function openOrder(){
+  orderIdx=0; $('orderMsg').textContent='';
+  $('orderSlots').innerHTML=ORDER.map(()=>`<div class="order-slot"><b></b><span></span></div>`).join('');
+  const pool=ORDER.map(o=>o[0]).concat(['夾','踢']).sort(()=>Math.random()-0.5);
+  const box=$('orderPool'); box.innerHTML='';
+  pool.forEach(ch=>{
+    const b=document.createElement('button'); b.type='button'; b.className='chip'; b.textContent=ch;
+    b.addEventListener('click',()=>{
+      if(orderIdx>=ORDER.length) return;
+      if(ch===ORDER[orderIdx][0]){
+        const slot=$('orderSlots').children[orderIdx]; slot.classList.add('on'); slot.querySelector('b').textContent=ch; slot.querySelector('span').textContent=ORDER[orderIdx][1];
+        b.disabled=true; orderIdx++; sfx.tick();
+        if(orderIdx===ORDER.length){ $('orderMsg').textContent='全對！刺、擲、蹍、齧、吐，王藍田的暴走流程你記住了。'; sfx.chime(); }
+        else $('orderMsg').textContent='';
+      } else {
+        b.classList.remove('wrong'); void b.offsetWidth; b.classList.add('wrong');
+        $('orderMsg').textContent=(ch==='夾'||ch==='踢')?'課文裡沒有這個動作喔。':'順序不對，再想想看。'; sfx.clack();
+      }
+    });
+    box.appendChild(b);
+  });
+  $('orderScreen').hidden=false;
+}
+$('orderReset').addEventListener('click',openOrder);
+$('orderClose').addEventListener('click',()=>{ $('orderScreen').hidden=true; });
+
+/* ---------- starting and title buttons ---------- */
+function startGame(stage){
+  audioInit(); timers.length=0; resetStats();
+  G.anger=0; G.grace=100; G.clock=0; G.clockOn=true; G.paused=false; G.lock=false; G.direct=stage!==1;
+  ['titleScreen','cardScreen','endScreen','textScreen','orderScreen'].forEach(id=>$(id).hidden=true);
+  shownA=-1; shownG=-1;
+  if(stage===1) go('s1'); else go('s'+stage,true);
+}
+$('startBtn').addEventListener('click',()=>startGame(1));
+$('howBtn').addEventListener('click',()=>{ const box=$('howBox'), open=box.hidden; box.hidden=!open; $('howBtn').setAttribute('aria-expanded',String(open)); });
+$('readBtn').addEventListener('click',()=>{ audioInit(); openText(); });
+document.querySelectorAll('[data-stage]').forEach(b=>b.addEventListener('click',()=>startGame(+b.dataset.stage)));
+UI.act.addEventListener('pointerdown',e=>{ e.preventDefault(); e.stopPropagation(); audioInit(); if(G.paused||G.lock) return; const st=S[G.state]; if(st&&st.act) st.act(); });
+
+/* ---------- pointer and keyboard ---------- */
+const ptr={down:false,id:null,x:0,y:0,cancel:false};
+canvas.addEventListener('pointerdown',e=>{
+  if(ptr.down&&e.pointerId!==ptr.id) return;
+  ptr.down=true; ptr.id=e.pointerId; ptr.x=e.clientX; ptr.y=e.clientY; ptr.cancel=false;
+  try{ canvas.setPointerCapture(e.pointerId); }catch(_){}
+  audioInit(); e.preventDefault();
+  if(G.paused||G.lock) return; const st=S[G.state]; if(st&&st.down) st.down(ptr);
+});
+canvas.addEventListener('pointermove',e=>{
+  if(ptr.down&&e.pointerId!==ptr.id) return;
+  ptr.x=e.clientX; ptr.y=e.clientY;
+  if(G.paused||G.lock) return; const st=S[G.state]; if(st&&st.move&&(ptr.down||e.pointerType==='mouse')) st.move(ptr);
+});
+function endPointer(e,cancel){
+  if(!ptr.down||e.pointerId!==ptr.id) return;
+  ptr.down=false; ptr.id=null; ptr.x=e.clientX; ptr.y=e.clientY; ptr.cancel=cancel;
+  if(G.paused||G.lock) return; const st=S[G.state]; if(st&&st.up) st.up(ptr);
+}
+canvas.addEventListener('pointerup',e=>endPointer(e,false));
+canvas.addEventListener('pointercancel',e=>endPointer(e,true));
+canvas.addEventListener('contextmenu',e=>e.preventDefault());
+const modalOpen=()=>['titleScreen','cardScreen','endScreen','textScreen','orderScreen'].some(id=>!$(id).hidden);
+window.addEventListener('keydown',e=>{
+  if(modalOpen()) return;
+  if(e.code==='Space'||e.code.indexOf('Arrow')===0) e.preventDefault();
+  if(e.repeat) return;
+  if(document.activeElement&&document.activeElement!==document.body&&document.activeElement.blur) document.activeElement.blur();
+  audioInit(); if(G.paused||G.lock) return;
+  const st=S[G.state]; if(st&&st.key) st.key(true,e.code);
+});
+window.addEventListener('keyup',e=>{ if(modalOpen()) return; const st=S[G.state]; if(st&&st.key&&!G.paused) st.key(false,e.code); });
+
+/* ---------- main loop ---------- */
+let last=performance.now();
+function loop(now){
+  requestAnimationFrame(loop);
+  const rdt=Math.min(0.05,Math.max(0,(now-last)/1000)); last=now;
+  if(!G.paused) runTimers(rdt);
+  if(G.slowmo>0){ G.slowmo-=rdt; G.timeScale=G.slowmo>0?G.slowScale:1; } else G.timeScale=1;
+  const dt=G.paused?0:rdt*G.timeScale;
+  G.t+=dt; if(!G.paused&&G.clockOn) G.clock+=rdt;
+  const st=S[G.state];
+  if(st&&st.update&&!G.paused) st.update(dt,rdt);
+  updEggVisual(dt); updDust(dt); updShells(dt); updManVisual(dt);
+  updCamera(rdt);
+  if(st&&st.late) st.late(dt);
+  updHUD();
+  lampLight.intensity=0.95+Math.sin(now*0.013)*0.06+Math.sin(now*0.031)*0.04; flame.scale.y=0.13+Math.sin(now*0.02)*0.01;
+  renderer.render(scene,camera);
+}
+function start(data){
+  setMuted(data&&typeof data.muted==='boolean'?data.muted:AU.muted);
+  go('title'); camRig.pos.copy(camRig.gPos); requestAnimationFrame(t=>{ last=t; loop(t); });
+}
+const hot=window.claude&&window.claude.hot;
+if(hot&&hot.snapshot) hot.snapshot(()=>({muted:AU.muted}));
+if(hot&&hot.ready) hot.ready(start); else start((hot&&hot.data)||{});
+window.__lantian={G,S,go,startGame,egg,man,manS,CFG,openText,openOrder,eggScreen:()=>toScreen(eggWorldPos(new T.Vector3()))};
+})();
+</script>
+
+</body></html>
